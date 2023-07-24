@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Navbar Animation">
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Background">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
@@ -150,7 +150,8 @@
       <updated>1690223130133</updated>
       <workItem from="1690223131181" duration="543000" />
       <workItem from="1690223712475" duration="1605000" />
-      <workItem from="1690229578061" duration="4785000" />
+      <workItem from="1690229578061" duration="5016000" />
+      <workItem from="1690239327777" duration="1353000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -173,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690230895116</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Background">
+      <created>1690234665054</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690234665054</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +190,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Integradora Parte 1" />
     <MESSAGE value="Navbar Animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navbar Animation" />
+    <MESSAGE value="Background" />
+    <option name="LAST_COMMIT_MESSAGE" value="Background" />
   </component>
 </project>
