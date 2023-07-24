@@ -3,15 +3,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sistema de Registro de Entradas y Salidas</title>
+    <title>Sistema Registro Personal UTEZ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Enlace a la hoja de estilos de Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilo personalizado para la barra de navegación */
+        .navbar-custom {
+            background-color: #000; /* Fondo negro */
+        }
+
+        /* Estilo para las opciones de navegación */
+        .navbar-custom .nav-link {
+            position: relative;
+            color: #fff; /* Texto blanco */
+            transition: color 0.2s; /* Transición de color al pasar el cursor */
+        }
+
+        /* Estilo para la animación al pasar el cursor */
+        .navbar-custom .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff; /* Línea azul */
+            transform: scaleX(0); /* Inicialmente la línea no se muestra */
+            transition: transform 0.3s; /* Transición de la animación */
+        }
+
+        /* Estilo para la animación al pasar el cursor */
+        .navbar-custom .nav-link:hover::after {
+            transform: scaleX(1); /* Al pasar el cursor, la línea aparece */
+        }
+    </style>
 </head>
 <body>
 <!-- Barra de navegación -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Sistema de Registro</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+    <a class="navbar-brand" href="#">SRP UTEZ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,15 +64,15 @@
 
 <div class="container mt-4">
     <div class="jumbotron">
-        <h1 class="display-4">Sistema de Registro de Entradas y Salidas</h1>
-        <p class="lead">Bienvenido al Sistema de Registro de Entradas y Salidas de Personal. Este sistema permite
-            registrar las entradas y salidas del personal de la empresa y consultar los registros de forma sencilla.</p>
+        <h1 class="display-4">Sistema Registro Personal UTEZ</h1>
+        <p class="lead">Bienvenido al SRP: Sistema Registro Personal UTEZ. Este sistema permite a los empleados de la Universidad Tecnológica Emiliano Zapata del Estado de Morelos (UTEZ) registrar sus entradas y salidas y consultar sus registros personales de asistencia.</p>
         <hr class="my-4">
-        <p>Para utilizar la aplicación, sigue las siguientes instrucciones:</p>
+        <h2>Instrucciones de Uso:</h2>
         <ol>
-            <li>Completa el formulario de registro proporcionando tu nombre, apellidos y departamento.</li>
-            <li>Haz clic en el botón "Registrar Entrada" para registrar tu entrada al trabajo.</li>
-            <li>Para consultar tus registros, selecciona la opción "Consulta" en la barra de navegación.</li>
+            <li>Para registrar tu entrada o salida, selecciona la opción "Registro" en la barra de navegación.</li>
+            <li>Completa el formulario proporcionando tu nombre, apellidos y departamento.</li>
+            <li>Haz clic en el botón "Registrar" para guardar el registro de entrada o salida.</li>
+            <li>Para consultar tus registros personales, selecciona la opción "Consulta" en la barra de navegación.</li>
             <li>Ingresa tu nombre o número de empleado y selecciona el rango de fechas para filtrar los registros.</li>
             <li>Presiona el botón "Consultar" para obtener los registros correspondientes.</li>
         </ol>
