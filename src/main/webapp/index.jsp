@@ -28,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: #007bff; /* Línea azul */
+            background-color: forestgreen; /* Línea azul */
             transform: scaleX(0); /* Inicialmente la línea no se muestra */
             transition: transform 0.3s; /* Transición de la animación */
         }
@@ -37,9 +37,24 @@
         .navbar-custom .nav-link:hover::after {
             transform: scaleX(1); /* Al pasar el cursor, la línea aparece */
         }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo con transparencia */
+            backdrop-filter: blur(10px); /* Efecto de desenfoque */
+        }
+
+        /* Estilos para el footer */
+        footer {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
     </style>
 </head>
-<body>
+<body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
 <!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
     <a class="navbar-brand" href="#">SRP UTEZ</a>
@@ -78,7 +93,9 @@
         </ol>
     </div>
 </div>
-
+<footer class="footer text-center" style="color: white">
+    <p>Todos los derechos reservados &copy; 2023 - SRP: Sistema Registro Personal UTEZ</p>
+</footer>
 <!-- Scripts de Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
