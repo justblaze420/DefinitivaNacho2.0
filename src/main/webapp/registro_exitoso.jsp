@@ -19,7 +19,7 @@
 <script>
   setTimeout(function() {
     window.location.href = "iniciosesion.jsp";
-  }, 1500);
+  }, 3000);
 </script>
 </body>
 </html>
