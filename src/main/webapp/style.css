@@ -1,0 +1,50 @@
+/* Estilo personalizado para la barra de navegación */
+.navbar-custom {
+    background-color: #000; /* Fondo negro */
+}
+
+/* Estilo para las opciones de navegación */
+.navbar-custom .nav-link {
+    position: relative;
+    color: #fff; /* Texto blanco */
+    transition: color 0.2s; /* Transición de color al pasar el cursor */
+}
+
+/* Estilo para la animación al pasar el cursor */
+.navbar-custom .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: forestgreen; /* Línea azul */
+    transform: scaleX(0); /* Inicialmente la línea no se muestra */
+    transition: transform 0.3s; /* Transición de la animación */
+}
+
+/* Estilo para la animación al pasar el cursor */
+.navbar-custom .nav-link:hover::after {
+    transform: scaleX(1); /* Al pasar el cursor, la línea aparece */
+}
+.jumbotron {
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo con transparencia */
+    padding: 2rem; /* Espaciado interno para evitar que el contenido se desborde */
+}
+.container {
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo con transparencia */
+    padding: 2rem; /* Espaciado interno para evitar que el contenido se desborde */
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
