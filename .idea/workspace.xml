@@ -9,15 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Integradora Parte 2">
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Background">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Consulta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Registro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registro_exitoso.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro_exitoso.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +39,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="2T1uuP1HPrgstRQuRNRsSw25o82" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -76,7 +69,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.75" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.75" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat 9.0.75" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.74" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11 (4)">
       <deployment>
         <artifact name="DefinitivaNacho2:war exploded">
           <settings>
@@ -174,8 +167,7 @@
       <workItem from="1690223131181" duration="543000" />
       <workItem from="1690223712475" duration="1605000" />
       <workItem from="1690229578061" duration="5016000" />
-      <workItem from="1690239327777" duration="13608000" />
-      <workItem from="1690297280830" duration="1376000" />
+      <workItem from="1690239327777" duration="13170000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -212,21 +204,7 @@
       <option name="project" value="LOCAL" />
       <updated>1690241596524</updated>
     </task>
-    <task id="LOCAL-00006" summary="Integradora Parte 2">
-      <created>1690256866057</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1690256866057</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Integradora Parte 2">
-      <created>1690256911972</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1690256911972</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +214,6 @@
     <MESSAGE value="Integradora Parte 1" />
     <MESSAGE value="Navbar Animation" />
     <MESSAGE value="Background" />
-    <MESSAGE value="Integradora Parte 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integradora Parte 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Background" />
   </component>
 </project>

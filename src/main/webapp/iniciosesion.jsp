@@ -7,16 +7,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"  media="all" href="style.css">
 </head>
 <style>
-    body {
-        background-image: url("https://newsdatic.files.wordpress.com/2016/12/utez1.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
+
     .jumbotron {
         backdrop-filter: blur(8px); /* Efecto de desenfoque */
         background-color: rgba(255, 255, 255, 0.5); /* Fondo con transparencia */
@@ -46,6 +40,13 @@
         </div>
     </nav>
 </header>
+<div class='ripple-background'>
+    <div class='circle xxlarge shade1'></div>
+    <div class='circle xlarge shade2'></div>
+    <div class='circle large shade3'></div>
+    <div class='circle mediun shade4'></div>
+    <div class='circle small shade5'></div>
+
 <div class="container mt-4">
     <div class="jumbotron">
         <h1 class="display-4">Iniciar Sesión</h1>
@@ -64,6 +65,6 @@
 
     </div>
 </div>
-
+</div>
 </body>
 </html>
