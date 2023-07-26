@@ -9,9 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Background">
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="New logo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/UsuarioServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/UsuarioServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registro_exitoso.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro_exitoso.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +29,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,7 +46,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="2T1uuP1HPrgstRQuRNRsSw25o82" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,13 +59,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Robbie Daniel/Downloads/DefinitivaNacho2.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Robbie Daniel/Downloads/DefinitivaNacho1.0&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -69,7 +79,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.75" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.74" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11 (4)">
+    <configuration name="Tomcat 9.0.75" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.75" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="DefinitivaNacho2:war exploded">
           <settings>
@@ -78,7 +89,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="5b620eb0-c900-4ffa-8d40-74025bf32ed4" />
+        <option name="BASE_DIRECTORY_NAME" value="5ce4a75b-0789-4d5f-884a-a8c4f0bb7a5d" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -86,7 +97,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63127" />
+        <option name="DEBUG_PORT" value="59286" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -167,7 +178,13 @@
       <workItem from="1690223131181" duration="543000" />
       <workItem from="1690223712475" duration="1605000" />
       <workItem from="1690229578061" duration="5016000" />
-      <workItem from="1690239327777" duration="13170000" />
+      <workItem from="1690239327777" duration="13608000" />
+      <workItem from="1690297280830" duration="1376000" />
+      <workItem from="1690338156007" duration="13000" />
+      <workItem from="1690338342252" duration="14712000" />
+      <workItem from="1690389479207" duration="359000" />
+      <workItem from="1690390111743" duration="5442000" />
+      <workItem from="1690400342586" duration="3825000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -204,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690241596524</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Integradora Parte 2">
+      <created>1690256866057</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690256866057</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Integradora Parte 2">
+      <created>1690256911972</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690256911972</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +245,7 @@
     <MESSAGE value="Integradora Parte 1" />
     <MESSAGE value="Navbar Animation" />
     <MESSAGE value="Background" />
-    <option name="LAST_COMMIT_MESSAGE" value="Background" />
+    <MESSAGE value="Integradora Parte 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integradora Parte 2" />
   </component>
 </project>

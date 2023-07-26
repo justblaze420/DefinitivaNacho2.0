@@ -41,21 +41,25 @@
     <form action="registro-servlet" method="post">
       <div class="form-group">
         <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="${usuario.nombre}" placeholder="Ingresa tu nombre" required>
       </div>
       <div class="form-group">
         <label for="apellido">Apellido:</label>
-        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresa tu apellido" required>
+        <input type="text" class="form-control" id="apellido" name="apellido" value="${usuario.apellido}" placeholder="Ingresa tu apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="rol">Rol:</label>
+        <input type="text" class="form-control" id="rol" name="rol" value="${usuario.rol}" placeholder="Ingresa el rol" required>
       </div>
       <div class="form-group">
         <label for="usuario">Usuario:</label>
-        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+        <input type="text" class="form-control" id="usuario" name="usuario" value="${usuario.usuario}" placeholder="Ingresa tu usuario" required>
       </div>
       <div class="form-group">
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" class="form-control" id="contraseña" name="contraseña" value="${usuario.contraseña}" placeholder="Ingresa tu contraseña" required>
       </div>
-      <button type="submit" class="btn btn-primary">Registrarse</button>
+      <button type="submit" class="btn btn-outline-primary">Registrarse</button>
     </form>
   </div>
 </div>

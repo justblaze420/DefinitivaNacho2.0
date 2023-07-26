@@ -10,20 +10,24 @@
     <link rel="stylesheet"  media="all" href="style.css">
 </head>
 <style>
+    body{
+        background: forestgreen;
+        min-height: 100vh;
+    }
 
     .jumbotron {
-        backdrop-filter: blur(8px); /* Efecto de desenfoque */
-        background-color: rgba(255, 255, 255, 0.5); /* Fondo con transparencia */
-        padding: 2rem; /* Espaciado interno para evitar que el contenido se desborde */
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 2rem;
     }
     .container {
-        backdrop-filter: blur(8px); /* Efecto de desenfoque */
-        background-color: rgba(255, 255, 255, 0.5); /* Fondo con transparencia */
-        padding: 2rem; /* Espaciado interno para evitar que el contenido se desborde */
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 2rem;
     }
 </style>
 
-<body >
+<body style="max-width: 1300px; margin: 0 auto; overflow: hidden;">
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
         <a class="navbar-brand" href="index.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
@@ -59,10 +63,11 @@
                 <label for="contrasena">Contraseña:</label>
                 <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
             </div>
-            <h6>¿No tienes cuenta? <a href="registro.jsp">Registrate Aqui!</a></h6>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+
+            <button type="submit" class="btn btn-outline-primary">Iniciar Sesión</button>
         </form>
 
+        <center><p class="mb-0"><small>Todos los derechos reservados &copy; 2023 - SRP: Sistema Registro Personal UTEZ</small></p></center>
     </div>
 </div>
 </div>

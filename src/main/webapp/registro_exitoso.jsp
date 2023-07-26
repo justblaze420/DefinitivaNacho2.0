@@ -11,15 +11,14 @@
   <div class="jumbotron">
     <h1 class="display-4">¡Registro Exitoso!</h1>
     <p class="lead">Tu usuario ha sido registrado correctamente.</p>
-    <p>Redirigiendo a la página de inicio de sesión en unos segundos...</p>
+    <p>Redirigiendo a la página en unos segundos...</p>
   </div>
 </div>
 
-<!-- Redirección a iniciosesion.jsp después de 3 segundos -->
 <script>
   setTimeout(function() {
-    window.location.href = "iniciosesion.jsp";
-  }, 3000);
+    window.location.href = "vistaConsultas.jsp";
+  }, 1500);
 </script>
 </body>
 </html>

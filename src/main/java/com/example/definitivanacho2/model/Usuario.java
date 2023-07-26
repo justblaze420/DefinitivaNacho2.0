@@ -9,23 +9,24 @@ public class Usuario {
     private String usuario;
     private String contraseña;
     private int idDepartamento;
-    private int idRol;
+    private String rol;
     private Date registro;
 
     public Usuario(){
     }
-    public Usuario(int idPersonal, String nombre, String apellido, String usuario, String contraseña, int idDepartamento, int idRol, Date registro) {
+
+    public Usuario(int idPersonal, String nombre, String apellido, String usuario, String contraseña, String rol) {
         this.idPersonal = idPersonal;
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.idDepartamento = idDepartamento;
-        this.idRol = idRol;
+        this.rol = rol;
         this.registro = registro;
     }
 
-
+    // Getters y Setters
     public int getIdPersonal() {
         return idPersonal;
     }
@@ -67,19 +68,19 @@ public class Usuario {
     }
 
     public int getIdDepartamento() {
-        return idDepartamento;
+        return this.idDepartamento;
     }
 
     public void setIdDepartamento(int idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
 
-    public int getIdRol() {
-        return idRol;
+    public String getRol() {
+        return rol;
     }
 
-    public void setIdRol(int idRol) {
-        this.idRol = idRol;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public Date getRegistro() {
@@ -89,4 +90,6 @@ public class Usuario {
     public void setRegistro(Date registro) {
         this.registro = registro;
     }
+
+
 }

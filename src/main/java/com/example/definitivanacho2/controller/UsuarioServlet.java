@@ -1,8 +1,10 @@
 package com.example.definitivanacho2.controller;
 
+import com.example.definitivanacho2.model.Usuario;
+import com.example.definitivanacho2.model.DAO.DaoUsuario;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,7 @@ public class UsuarioServlet extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
 
-        if (usuario.equals("admin") && contrasena.equals("12345")) {
+        if (usuario.equals("admin") && contrasena.equals("admin")) {
 
             response.sendRedirect("bienvenida.jsp");
         } else {

@@ -1,10 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page import="com.example.definitivanacho2.model.Usuario" %>
+<%@ page import="com.example.definitivanacho2.model.DAO.DaoUsuario" %><%--
+  Created by IntelliJ IDEA.
+  User: Robbie Daniel
+  Date: 25/07/2023
+  Time: 11:07 p. m.
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Sistema Registro Personal UTEZ - Bienvenida</title>
+    <title>Consultas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Estilo personalizado para la barra de navegación */
@@ -53,8 +59,7 @@
     }
   </style>
 </head>
-<body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
-<!-- Barra de navegación -->
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
   <a class="navbar-brand" href="#"><img src="assets/img/DALL·E.png" width="40" height="40">SRP UTEZ</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -78,18 +83,53 @@
 
 <div class="container mt-4">
   <div class="jumbotron">
-    <h1 class="display-4">¡Bienvenido al Sistema Registro Personal UTEZ!</h1>
-    <p class="lead">Gracias por iniciar sesión en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
-    <hr class="my-4">
-    <h2>¡Disfruta de todas las funcionalidades del sistema!</h2>
+  <h1>Usuarios</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Rol</th>
+      <th>Usuario</th>
+      <th>Contraseña</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+      request.getSession().removeAttribute("Usuario");
+      DaoUsuario usr = new DaoUsuario();
+      request.getSession().setAttribute("Usuario", usr.findAll());
+    %>
+    <c:forEach items="${Usuario}" var="u">
+      <tr>
+        <td width="150px">${u.nombre}</td>
+        <td width="150px">${u.apellido}</td>
+        <td width="150px">${u.rol}</td>
+        <td width="150px">${u.usuario}</td>
+        <td width="150px">${u.contraseña}</td>
+
+        <td><a class="btn btn-outline-info"
+               href="registro-servlet?id=${u.id}&operacion=update">Modificar</a></td>
+        <td><a class="btn btn-outline-danger"
+               href="registro-servlet?id=${u.id}&operacion=delete">X</a>
+          <script>
+            function mostrarAlerta() {
+              alert("Seguro de eliminar el registro?");
+              window.location.href = "home1.html"; // Enlace a redirigir
+            }
+          </script>
+        </td>
+
+
+      </tr>
+
+
+    </c:forEach>
+    </tbody>
+  </table>
   </div>
 </div>
-<footer class="footer text-center" style="color: white">
-  <p>Todos los derechos reservados &copy; 2023 - SRP: Sistema Registro Personal UTEZ</p>
-</footer>
-<!-- Scripts de Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
