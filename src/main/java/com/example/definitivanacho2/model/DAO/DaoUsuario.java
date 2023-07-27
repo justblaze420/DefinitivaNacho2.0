@@ -22,10 +22,10 @@ public class DaoUsuario implements DaoRepository{
                 usr.setIdPersonal(res.getInt("idPersonal"));
                 usr.setNombre(res.getString("nombre"));
                 usr.setApellido(res.getString("apellido"));
-                usr.setUsuario(res.getString("usuario"));
-                usr.setContraseña(res.getString("contraseña"));
-                usr.getIdDepartamento();
                 usr.setRol(res.getString("rol"));
+                usr.setUsuario(res.getString("usuario"));
+                usr.setContrasena(res.getString("contrasena"));
+                usr.getIdDepartamento();
                 usr.setRegistro(res.getDate("registro"));
                 listaUsuarios.add(usr);
             }
@@ -48,10 +48,10 @@ public class DaoUsuario implements DaoRepository{
                 usr.setIdPersonal(res.getInt("idPersonal"));
                 usr.setNombre(res.getString("nombre"));
                 usr.setApellido(res.getString("apellido"));
-                usr.setUsuario(res.getString("usuario"));
-                usr.setContraseña(res.getString("contraseña"));
-                usr.getIdDepartamento();
                 usr.setRol(res.getString("rol"));
+                usr.setUsuario(res.getString("usuario"));
+                usr.setContrasena(res.getString("contrasena"));
+                usr.getIdDepartamento();
                 usr.setRegistro(res.getDate("registro"));
             } else {
                 usr.setUsuario("No existe el Usuario con el id " + idPersonal);
@@ -69,12 +69,12 @@ public class DaoUsuario implements DaoRepository{
         Connection con = conector.connect();
         try {
             PreparedStatement stmt =con.prepareStatement("update personal "+
-                    "set nombre = ?, apellido = ?, rol = ?, usuario = ?, contraseña = ?" + "WHERE idPersonal = ?");
+                    "set nombre = ?, apellido = ?, rol = ?, usuario = ?, contrasena = ?" + "WHERE idPersonal = ?");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(3, usr.getRol());
             stmt.setString(4, usr.getUsuario());
-            stmt.setString(5, usr.getContraseña());
+            stmt.setString(5, usr.getContrasena());
             stmt.setInt(6, usr.getIdPersonal());
             if (stmt.executeUpdate()>0) res = true;
         } catch (SQLException e) {
@@ -111,13 +111,13 @@ public class DaoUsuario implements DaoRepository{
         Connection conection = con.connect();
 
         try {
-            PreparedStatement stmt = conection.prepareStatement("insert into personal (nombre, apellido, usuario, contraseña, rol, registro)"
+            PreparedStatement stmt = conection.prepareStatement("insert into personal (nombre, apellido, usuario, contrasena, rol, registro)"
                     + "values(?,?,?,?,?,?)");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
-            stmt.setString(3, usr.getUsuario());
-            stmt.setString(4, usr.getContraseña());
             stmt.setString(5, usr.getRol());
+            stmt.setString(3, usr.getUsuario());
+            stmt.setString(4, usr.getContrasena());
             if (usr.getRegistro() != null) {
                 stmt.setDate(6, new java.sql.Date(usr.getRegistro().getTime()));
             } else {
@@ -131,7 +131,7 @@ public class DaoUsuario implements DaoRepository{
         }
         return resultado;
     }
-    public Object findOne1(String nombre, String apellido, String contraseña) {
+    public Object findOne1(String nombre, String apellido, String contrasena) {
         Usuario usr = new Usuario();
         MysqlConnector con = new MysqlConnector();
         Connection conexion = con.connect();
@@ -143,9 +143,9 @@ public class DaoUsuario implements DaoRepository{
                 usr.setIdPersonal(res.getInt("idPersonal"));
                 usr.setNombre(res.getString("nombre"));
                 usr.setApellido(res.getString("apellido"));
-                usr.setUsuario(res.getString("usuario"));
-                usr.setContraseña(res.getString("contraseña"));
                 usr.setRol(res.getString("rol"));
+                usr.setUsuario(res.getString("usuario"));
+                usr.setContrasena(res.getString("contrasena"));
                 usr.setRegistro(res.getDate("registro"));
             } else {
                 usr.setUsuario("No existe el Usuario con el id " + nombre);

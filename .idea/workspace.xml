@@ -9,16 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="New logo">
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Integradora Parte 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/UsuarioServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/UsuarioServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registro_exitoso.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro_exitoso.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +182,10 @@
       <workItem from="1690338342252" duration="14712000" />
       <workItem from="1690389479207" duration="359000" />
       <workItem from="1690390111743" duration="5442000" />
-      <workItem from="1690400342586" duration="3825000" />
+      <workItem from="1690400342586" duration="4133000" />
+      <workItem from="1690414929763" duration="1180000" />
+      <workItem from="1690424299342" duration="492000" />
+      <workItem from="1690426701095" duration="6136000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -235,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690256911972</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Integradora Parte 3">
+      <created>1690404410996</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690404410997</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +254,7 @@
     <MESSAGE value="Navbar Animation" />
     <MESSAGE value="Background" />
     <MESSAGE value="Integradora Parte 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integradora Parte 2" />
+    <MESSAGE value="Integradora Parte 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integradora Parte 3" />
   </component>
 </project>

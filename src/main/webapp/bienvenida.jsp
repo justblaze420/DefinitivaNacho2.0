@@ -56,7 +56,7 @@
 <body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
 <!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
-  <a class="navbar-brand" href="#"><img src="assets/img/DALL·E.png" width="40" height="40">SRP UTEZ</a>
+  <a class="navbar-brand" href="#"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

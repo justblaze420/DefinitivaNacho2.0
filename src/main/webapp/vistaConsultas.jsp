@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Consultas</title>
@@ -61,7 +62,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
-  <a class="navbar-brand" href="#"><img src="assets/img/DALL·E.png" width="40" height="40">SRP UTEZ</a>
+  <a class="navbar-brand" href="#"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -69,19 +70,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Inicio</a>
+        <a class="nav-link" href="bienvenida.jsp">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="registro.jsp">Registro</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
+        <a class="nav-link" href="#">Consulta</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<div class="container mt-4">
+<div class="container mt-4" style="font-family: Arial">
   <div class="jumbotron">
   <h1>Usuarios</h1>
   <table class="table table-striped table-bordered">
@@ -99,21 +100,21 @@
     <tbody>
     <%
       request.getSession().removeAttribute("Usuario");
-      DaoUsuario usr = new DaoUsuario();
-      request.getSession().setAttribute("Usuario", usr.findAll());
+      DaoUsuario daoUsr = new DaoUsuario();
+      request.getSession().setAttribute("Usuario", daoUsr.findAll());
     %>
     <c:forEach items="${Usuario}" var="u">
       <tr>
-        <td width="150px">${u.nombre}</td>
-        <td width="150px">${u.apellido}</td>
-        <td width="150px">${u.rol}</td>
-        <td width="150px">${u.usuario}</td>
-        <td width="150px">${u.contraseña}</td>
+        <td>${u.nombre}</td>
+        <td>${u.apellido}</td>
+        <td>${u.rol}</td>
+        <td>${u.usuario}</td>
+        <td>${u.contrasena}</td>
 
         <td><a class="btn btn-outline-info"
-               href="registro-servlet?id=${u.id}&operacion=update">Modificar</a></td>
+               href="registro-servlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
         <td><a class="btn btn-outline-danger"
-               href="registro-servlet?id=${u.id}&operacion=delete">X</a>
+               href="registro-servlet?id=${u.idPersonal}&operacion=delete">X</a>
           <script>
             function mostrarAlerta() {
               alert("Seguro de eliminar el registro?");

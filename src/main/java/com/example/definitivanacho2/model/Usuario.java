@@ -6,23 +6,23 @@ public class Usuario {
     private int idPersonal;
     private String nombre;
     private String apellido;
-    private String usuario;
-    private String contraseña;
-    private int idDepartamento;
     private String rol;
+    private String usuario;
+    private String contrasena;
+    private int idDepartamento;
     private Date registro;
 
     public Usuario(){
     }
 
-    public Usuario(int idPersonal, String nombre, String apellido, String usuario, String contraseña, String rol) {
+    public Usuario(int idPersonal, String nombre, String apellido, String rol, String usuario, String contrasena) {
         this.idPersonal = idPersonal;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.idDepartamento = idDepartamento;
         this.rol = rol;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.idDepartamento = idDepartamento;
         this.registro = registro;
     }
 
@@ -51,6 +51,14 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     public String getUsuario() {
         return usuario;
     }
@@ -59,12 +67,12 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public int getIdDepartamento() {
@@ -73,14 +81,6 @@ public class Usuario {
 
     public void setIdDepartamento(int idDepartamento) {
         this.idDepartamento = idDepartamento;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
     }
 
     public Date getRegistro() {
