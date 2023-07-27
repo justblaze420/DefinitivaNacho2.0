@@ -2,6 +2,7 @@ package com.example.definitivanacho2.model.DAO;
 import com.example.definitivanacho2.model.Usuario;
 import com.example.definitivanacho2.utils.MysqlConnector;
 
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -155,5 +156,35 @@ public class DaoUsuario implements DaoRepository{
         }
         return usr;
     }
+
+    public Usuario findOneByUsuarioAndPassword(String usuario, String contrasena) {
+        Usuario user = null;
+        MysqlConnector connector = new MysqlConnector();
+
+        try (Connection conn = connector.connect();
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM personal WHERE usuario = ? AND contrasena = ?")) {
+
+            ps.setString(1, usuario);
+            ps.setString(2, contrasena);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new Usuario(
+                        rs.getInt("idPersonal"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("rol"),
+                        rs.getString("usuario"),
+                        rs.getString("contrasena")
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return user;
+    }
+
+
 
 }

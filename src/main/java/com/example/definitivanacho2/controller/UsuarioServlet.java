@@ -20,8 +20,10 @@ public class UsuarioServlet extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
 
-        if (usuario.equals("admin") && contrasena.equals("admin")) {
+        DaoUsuario dao = new DaoUsuario();
+        Usuario user = dao.findOneByUsuarioAndPassword(usuario, contrasena);
 
+        if (user != null) {
             response.sendRedirect("bienvenida.jsp");
         } else {
 
