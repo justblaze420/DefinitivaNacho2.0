@@ -80,21 +80,13 @@
     </ul>
   </div>
 </nav>
-<%
-  Usuario usuario = (Usuario) session.getAttribute("usuario");
-  String nombreUsuario;
-  if (usuario != null) {
-    nombreUsuario = usuario.getNombre();
-  } else {
-    nombreUsuario = "Invitado";
-  }
-%>
+
 <div class="container mt-4">
   <center>
   <div class="jumbotron">
     <h1 class="display-4">
       <!-- Usamos la información del usuario para personalizar el mensaje de bienvenida -->
-      ¡Bienvenido a SRP Utez, <%= nombreUsuario %>!
+      ¡Bienvenido a SRP Utez, Admin!
     </h1>
     <p class="lead">Gracias por iniciar sesión en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
     <hr class="my-4">

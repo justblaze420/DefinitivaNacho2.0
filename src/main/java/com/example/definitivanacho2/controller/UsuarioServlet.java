@@ -17,6 +17,8 @@ public class UsuarioServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+
         String usuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
 
@@ -24,12 +26,10 @@ public class UsuarioServlet extends HttpServlet {
         Usuario user = dao.findOneByUsuarioAndPassword(usuario, contrasena);
 
         if (usuario.equals("SRP_Admin") && contrasena.equals("Nabocadosol")) {
-            Usuario admin = new Usuario(0, "Admin", "", "Admin", usuario, contrasena);
-            request.getSession().setAttribute("usuario", admin);
             response.sendRedirect("bienvenida.jsp");
         } else if (user != null) {
-            request.getSession().setAttribute("usuario", user); // Aquí guardamos el usuario en la sesión
-            response.sendRedirect("bienvenida.jsp");
+            request.getSession().setAttribute("usuario", user);
+            response.sendRedirect("bienvenidaUser.jsp");
         } else {
 
             PrintWriter out = response.getWriter();
