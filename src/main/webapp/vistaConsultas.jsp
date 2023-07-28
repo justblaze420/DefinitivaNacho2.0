@@ -78,6 +78,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Consulta</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -93,6 +96,7 @@
       <th>Rol</th>
       <th>Usuario</th>
       <th>Contraseña</th>
+      <th>Fecha de Registro</th>
       <th>Editar</th>
       <th>Eliminar</th>
     </tr>
@@ -110,6 +114,7 @@
         <td>${u.rol}</td>
         <td>${u.usuario}</td>
         <td>${u.contrasena}</td>
+        <td>${u.registro}</td>
 
         <td><a class="btn btn-outline-info"
                href="registro-servlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>

@@ -113,17 +113,13 @@ public class DaoUsuario implements DaoRepository{
 
         try {
             PreparedStatement stmt = conection.prepareStatement("insert into personal (nombre, apellido, usuario, contrasena, rol, registro)"
-                    + "values(?,?,?,?,?,?)");
+                    + "values(?,?,?,?,?,now())");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(5, usr.getRol());
             stmt.setString(3, usr.getUsuario());
             stmt.setString(4, usr.getContrasena());
-            if (usr.getRegistro() != null) {
-                stmt.setDate(6, new java.sql.Date(usr.getRegistro().getTime()));
-            } else {
-                stmt.setDate(6, new java.sql.Date(System.currentTimeMillis()));
-            }
+
             int res = stmt.executeUpdate();
             if (res >= 1) resultado = true;
 

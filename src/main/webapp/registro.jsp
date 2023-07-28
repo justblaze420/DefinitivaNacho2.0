@@ -1,4 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%
+  session.removeAttribute("atributoAEliminar");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +42,9 @@
         <li class="nav-item">
           <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -66,6 +74,7 @@
         <label for="contrasena">Contraseña:</label>
         <input type="password" class="form-control" id="contrasena" name="contrasena" value="${usuario.contrasena}" placeholder="Ingresa tu contraseña" required>
       </div>
+      <input type="hidden" name="idPersonal" id="idPersonal" value="${usuario.idPersonal}">
       <button type="submit" class="btn btn-outline-primary">Registrarse</button>
     </form>
   </div>

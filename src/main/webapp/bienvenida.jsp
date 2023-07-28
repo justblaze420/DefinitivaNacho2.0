@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@page import="com.example.definitivanacho2.model.Usuario"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,17 +74,33 @@
       <li class="nav-item">
         <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>
+      </li>
     </ul>
   </div>
 </nav>
-
+<%
+  Usuario usuario = (Usuario) session.getAttribute("usuario");
+  String nombreUsuario;
+  if (usuario != null) {
+    nombreUsuario = usuario.getNombre();
+  } else {
+    nombreUsuario = "Invitado";
+  }
+%>
 <div class="container mt-4">
+  <center>
   <div class="jumbotron">
-    <h1 class="display-4">¡Bienvenido al Sistema Registro Personal UTEZ!</h1>
+    <h1 class="display-4">
+      <!-- Usamos la información del usuario para personalizar el mensaje de bienvenida -->
+      ¡Bienvenido a SRP Utez, <%= nombreUsuario %>!
+    </h1>
     <p class="lead">Gracias por iniciar sesión en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
     <hr class="my-4">
-    <h2>¡Disfruta de todas las funcionalidades del sistema!</h2>
+    <img src="assets/img/fingerprint.png" height="256" width="244">
   </div>
+  </center>
 </div>
 <footer class="footer text-center" style="color: white">
   <p>Todos los derechos reservados &copy; 2023 - SRP: Sistema Registro Personal UTEZ</p>
