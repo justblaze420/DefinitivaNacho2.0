@@ -7,6 +7,7 @@
   <title>Registros User</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
@@ -67,7 +68,7 @@
         <a class="nav-link" href="bienvenidaUser.jsp">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="registroEntradas.jsp">Registrar Entradas/Salidas</a>
+        <a class="nav-link" href="entrada.jsp">Entradas/Salidas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Consulta</a>

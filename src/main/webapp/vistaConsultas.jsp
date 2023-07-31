@@ -1,11 +1,6 @@
 <%@ page import="com.example.definitivanacho2.model.Usuario" %>
-<%@ page import="com.example.definitivanacho2.model.DAO.DaoUsuario" %><%--
-  Created by IntelliJ IDEA.
-  User: Robbie Daniel
-  Date: 25/07/2023
-  Time: 11:07 p. m.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example.definitivanacho2.model.DAO.DaoUsuario" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -13,6 +8,7 @@
     <title>Consultas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
@@ -87,54 +83,57 @@
 
 <div class="container mt-4" style="font-family: Arial">
   <div class="jumbotron">
-  <h1>Usuarios</h1>
-  <table class="table table-striped table-bordered">
-    <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Rol</th>
-      <th>Usuario</th>
-      <th>Contraseña</th>
-      <th>Fecha de Registro</th>
-      <th>Editar</th>
-      <th>Eliminar</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%
-      request.getSession().removeAttribute("Usuario");
-      DaoUsuario daoUsr = new DaoUsuario();
-      request.getSession().setAttribute("Usuario", daoUsr.findAll());
-    %>
-    <c:forEach items="${Usuario}" var="u">
+
+    <h1>Usuarios</h1>
+    <table class="table table-striped table-bordered">
+      <thead>
       <tr>
-        <td>${u.nombre}</td>
-        <td>${u.apellido}</td>
-        <td>${u.rol}</td>
-        <td>${u.usuario}</td>
-        <td>${u.contrasena}</td>
-        <td>${u.registro}</td>
-
-        <td><a class="btn btn-outline-info"
-               href="registro-servlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
-        <td><a class="btn btn-outline-danger"
-               href="registro-servlet?id=${u.idPersonal}&operacion=delete">X</a>
-          <script>
-            function mostrarAlerta() {
-              alert("Seguro de eliminar el registro?");
-              window.location.href = "home1.html"; // Enlace a redirigir
-            }
-          </script>
-        </td>
-
-
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Rol</th>
+        <th>Usuario</th>
+        <th>Fecha de Registro</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
+      </thead>
+      <tbody>
+      <%
+        request.getSession().removeAttribute("Usuario");
+        DaoUsuario daoUsr = new DaoUsuario();
+        request.getSession().setAttribute("Usuario", daoUsr.findAll());
+      %>
+      <c:forEach items="${Usuario}" var="u">
+        <tr>
+          <td>${u.idPersonal}</td>
+          <td>${u.nombre}</td>
+          <td>${u.apellido}</td>
+          <td>${u.rol}</td>
+          <td>${u.usuario}</td>
+          <td>${u.registro}</td>
+
+          <td><a class="btn btn-outline-info"
+                 href="registro-servlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
+          <td><a class="btn btn-outline-danger"
+                 href="registro-servlet?id=${u.idPersonal}&operacion=delete">X</a>
+            <script>
+              function mostrarAlerta() {
+                alert("Seguro de eliminar el registro?");
+                window.location.href = "home1.html"; // Enlace a redirigir
+              }
+            </script>
+          </td>
 
 
-    </c:forEach>
-    </tbody>
-  </table>
+        </tr>
+
+
+      </c:forEach>
+      </tbody>
+    </table>
+
+
   </div>
 </div>
 </body>

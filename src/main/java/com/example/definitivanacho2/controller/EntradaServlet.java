@@ -3,30 +3,28 @@ package com.example.definitivanacho2.controller;
 import com.example.definitivanacho2.model.Usuario;
 import com.example.definitivanacho2.model.DAO.DaoUsuario;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet(name = "UsuarioServlet", value = "/usuario-servlet")
-public class UsuarioServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@WebServlet(name = "EntradaServlet", value = "/entrada-servlet")
+public class EntradaServlet extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String usuario = request.getParameter("usuario");
+        int idPersonal = Integer.parseInt(request.getParameter("idPersonal"));
         String contrasena = request.getParameter("contrasena");
 
         DaoUsuario dao = new DaoUsuario();
-        Usuario user = dao.findOneByUsuarioAndPassword(usuario, contrasena);
+        Usuario user = dao.findOneByIdAndPassword(idPersonal, contrasena);
 
-        if (usuario.equals("SRP_Admin") && contrasena.equals("Nabocadosol")) {
-            response.sendRedirect("bienvenida.jsp");
-        } else if (user != null) {
+        if (user != null) {
             request.getSession().setAttribute("usuario", user);
-            response.sendRedirect("bienvenidaUser.jsp");
+            response.sendRedirect("entrada.jsp");
         } else {
 
             PrintWriter out = response.getWriter();
@@ -39,7 +37,6 @@ public class UsuarioServlet extends HttpServlet {
             out.println("<link rel=\"shortcut icon\" href=\"assets/img/DALL·E.ico\" />");
             out.println("<style>");
             out.println("body {");
-            out.println("    background-image: url(\"https://newsdatic.files.wordpress.com/2016/12/qqq.jpg\");");
             out.println("    background-size: cover;");
             out.println("    background-repeat: no-repeat;");
             out.println("    background-attachment: fixed;");
@@ -57,7 +54,7 @@ public class UsuarioServlet extends HttpServlet {
             out.println("}");
             out.println("</style>");
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body background=\"assets/img/utezzzz.jpg\">");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark navbar-custom\">");
             out.println("<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/img/DALL·E.png\" width=\"40\" height=\"40\">  SRP UTEZ</a>");
             out.println("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\""
@@ -74,9 +71,9 @@ public class UsuarioServlet extends HttpServlet {
             out.println("</nav>");
             out.println("<div class=\"container mt-4\">");
             out.println("<div class=\"jumbotron\">");
-            out.println("<h1>Error de inicio de sesión</h1>");
-            out.println("<p>Usuario o contraseña incorrectos. Inténtalo de nuevo.</p>");
-            out.println("<a href=\"iniciosesion.jsp\" class=\"btn btn-outline-success\">Regresar</a>");
+            out.println("<h1>Error de Registro</h1>");
+            out.println("<p>ID o Clave incorrectos. Inténtalo de nuevo.</p>");
+            out.println("<a href=\"index.jsp\" class=\"btn btn-outline-dark\">Regresar</a>");
             out.println("</div>");
             out.println("</div>");
             out.println("</body>");

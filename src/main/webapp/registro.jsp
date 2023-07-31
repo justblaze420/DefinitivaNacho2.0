@@ -3,6 +3,9 @@
 <%
   session.removeAttribute("atributoAEliminar");
 %>
+<%
+  session.invalidate();
+%>
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +14,7 @@
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
   <style>
     .jumbotron {
       backdrop-filter: blur(8px); /* Efecto de desenfoque */

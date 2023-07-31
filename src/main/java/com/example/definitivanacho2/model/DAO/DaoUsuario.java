@@ -3,6 +3,7 @@ import com.example.definitivanacho2.model.Usuario;
 import com.example.definitivanacho2.utils.MysqlConnector;
 
 import java.sql.*;
+import java.sql.Timestamp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 public class DaoUsuario implements DaoRepository{
+    private Connection getConnection() {
+        MysqlConnector connector = new MysqlConnector();
+        return connector.connect();
+    }
     @Override
     public List findAll() {
         List<Usuario> listaUsuarios = new ArrayList<>();
@@ -153,6 +158,35 @@ public class DaoUsuario implements DaoRepository{
         return usr;
     }
 
+
+    public Usuario findOneByIdAndPassword(int idPersonal, String contrasena) {
+        Usuario user = null;
+        MysqlConnector connector = new MysqlConnector();
+
+        try (Connection conn = connector.connect();
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM personal WHERE idPersonal = ? AND contrasena = ?")) {
+
+            ps.setInt(1, idPersonal);
+            ps.setString(2, contrasena);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new Usuario(
+                        rs.getInt("idPersonal"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("rol"),
+                        rs.getString("usuario"),
+                        rs.getString("contrasena")
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return user;
+    }
+
     public Usuario findOneByUsuarioAndPassword(String usuario, String contrasena) {
         Usuario user = null;
         MysqlConnector connector = new MysqlConnector();
@@ -181,6 +215,27 @@ public class DaoUsuario implements DaoRepository{
         return user;
     }
 
+    public Usuario findOneById(int idPersonal) {
+        String sql = "SELECT * FROM Usuario WHERE idPersonal = ?";
+        try (Connection conn = this.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+            stmt.setInt(1, idPersonal);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String nombre = rs.getString("nombre");
+                    String apellido = rs.getString("apellido");
+                    String rol = rs.getString("rol");
+                    String usuario = rs.getString("usuario");
+                    String contrasena = rs.getString("contrasena");
+                    return new Usuario(idPersonal, nombre, apellido, rol, usuario, contrasena);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

@@ -1,7 +1,6 @@
 package com.example.definitivanacho2.model;
-
 import java.util.Date;
-
+import java.sql.Connection;
 public class Usuario {
     private int idPersonal;
     private String nombre;

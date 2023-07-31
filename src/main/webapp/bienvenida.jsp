@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
