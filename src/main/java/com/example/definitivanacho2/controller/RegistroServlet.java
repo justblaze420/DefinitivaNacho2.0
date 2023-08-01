@@ -35,7 +35,7 @@ public class RegistroServlet extends HttpServlet {
             } else if (operacion.equals("update")) {
                 DaoUsuario dao = new DaoUsuario();
                 int id = Integer.parseInt(req.getParameter("id"));
-                Usuario usr = (Usuario) dao.findOneById(id);
+                Usuario usr = (Usuario) dao.findOne(id);
                 usr.setIdPersonal(id);
                 req.getSession().setAttribute("usuario", usr);
                 respuesta = "registro.jsp";

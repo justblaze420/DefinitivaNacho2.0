@@ -6,7 +6,6 @@
 <%
   session.invalidate();
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +67,15 @@
       </div>
       <div class="form-group">
         <label for="rol">Rol:</label>
-        <input type="text" class="form-control" id="rol" name="rol" value="${usuario.rol}" placeholder="Ingresa el rol" required>
+        <select class="form-control" id="rol" name="rol" placeholder="Ingresa el rol"
+                required>
+          <option value="User" ${usuario.rol == 'user' ? 'selected' :
+                  ''}>Usuario</option>
+          <option value="Admin" ${usuario.rol == 'admin' ? 'selected' :
+                  ''}>Administrador</option>
+          <option value="Admin" ${usuario.rol == 'admin' ? 'selected' : ''}>Recursos
+            Humanos</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="usuario">Usuario:</label>

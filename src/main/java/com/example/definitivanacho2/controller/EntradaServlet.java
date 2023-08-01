@@ -2,14 +2,19 @@ package com.example.definitivanacho2.controller;
 
 import com.example.definitivanacho2.model.Usuario;
 import com.example.definitivanacho2.model.DAO.DaoUsuario;
+import com.example.definitivanacho2.model.DAO.DaoRegistro;
+import com.example.definitivanacho2.model.Registro;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @WebServlet(name = "EntradaServlet", value = "/entrada-servlet")
 public class EntradaServlet extends HttpServlet {
@@ -24,7 +29,20 @@ public class EntradaServlet extends HttpServlet {
 
         if (user != null) {
             request.getSession().setAttribute("usuario", user);
-            response.sendRedirect("entrada.jsp");
+
+            java.util.Date date = new java.util.Date();
+            Timestamp horaEntrada = new Timestamp(date.getTime());
+
+            Registro registro = new Registro();
+            registro.setIdPersonal(idPersonal);
+            registro.setHoraEntrada(horaEntrada);
+
+            DaoRegistro daoRegistro = new DaoRegistro();
+            daoRegistro.save(registro);
+
+            request.setAttribute("registro", registro); // req cambiado por request
+            RequestDispatcher dispatcher = request.getRequestDispatcher("entrada.jsp"); // req cambiado por request
+            dispatcher.forward(request, response);
         } else {
 
             PrintWriter out = response.getWriter();
@@ -64,7 +82,7 @@ public class EntradaServlet extends HttpServlet {
             out.println("<div class=\"collapse navbar-collapse\" id=\"navbarNav\">");
             out.println("<ul class=\"navbar-nav ml-auto\">");
             out.println("<li class=\"nav-item\">");
-            out.println("<a class=\"nav-link\" href=\"iniciosesion.jsp\">Regresar</a>");
+            out.println("<a class=\"nav-link\" href=\"index.jsp\">Regresar</a>");
             out.println("</li>");
             out.println("</ul>");
             out.println("</div>");
@@ -80,4 +98,6 @@ public class EntradaServlet extends HttpServlet {
             out.println("</html>");
         }
     }
+
+
 }

@@ -3,7 +3,6 @@ import com.example.definitivanacho2.model.Usuario;
 import com.example.definitivanacho2.utils.MysqlConnector;
 
 import java.sql.*;
-import java.sql.Timestamp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,6 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,8 +90,16 @@
     <h1 class="display-4">¡Bienvenido!</h1>
     <p class="lead">Tu registro ha sido completado exitosamente. <%= usuario.getNombre() %></p>
     <hr class="my-4">
-    <p>Puedes explorar nuestra plataforma ahora.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Explorar</a>
+    <table border="1" class="table table-striped table-bordered">
+      <tr>
+        <th>ID Personal</th>
+        <th>Hora de Entrada</th>
+      </tr>
+      <tr>
+        <td>${registro.idPersonal}</td>
+        <td>${registro.horaEntrada}</td>
+      </tr>
+    </table>
   </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

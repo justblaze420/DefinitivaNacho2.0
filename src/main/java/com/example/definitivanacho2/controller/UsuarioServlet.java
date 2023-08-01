@@ -25,8 +25,15 @@ public class UsuarioServlet extends HttpServlet {
         if (usuario.equals("SRP_Admin") && contrasena.equals("Nabocadosol")) {
             response.sendRedirect("bienvenida.jsp");
         } else if (user != null) {
+            request.getSession().setAttribute("rol", "Admin");
             request.getSession().setAttribute("usuario", user);
-            response.sendRedirect("bienvenidaUser.jsp");
+            if (user.getRol().equals("Admin")) {
+                request.getSession().setAttribute("rol", "Admin");
+                response.sendRedirect("bienvenida.jsp");
+            } else if (user.getRol().equals("User")) {
+                request.getSession().setAttribute("rol", "User");
+                response.sendRedirect("bienvenidaUser.jsp");
+            }
         } else {
 
             PrintWriter out = response.getWriter();
