@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%
+    session.removeAttribute("atributoAEliminar");
+%>
+<%
+    session.invalidate();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,6 +79,17 @@
     .slide-in {
         animation: 0.5s ease-out 0s 1 slideInFromRight;
     }
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .container {
+        max-height: 100vh;
+    }
 
 </style>
 
@@ -85,9 +102,9 @@
         <hr class="my-4">
 
         <div id="form-container" style="display: flex; text-align: center">
-            <img src="assets/img/fingerprint.png" id="show-form" style="height:100px; width:100px; position: relative; left: 45%;">
-            <div class="form-group" id="hidden-form" style="display: none; position: relative; left: 30%;" >
-                <br><br><br><br>
+            <a href="#"><img src="assets/img/fingerprint.png" id="show-form" style="height:100px; width:100px; position: relative; left: 400%;"></a>
+            <div class="form-group" id="hidden-form" style="display: none; position: relative; left: 40%;" >
+
                 <form action="entrada-servlet" method="post" style="font-family: Verdana">
                     <label for="id">ID:</label>
                     <input type="number" name="idPersonal" id="idPersonal" required>
@@ -108,7 +125,7 @@
     $(document).ready(function() {
         $('#show-form').click(function(e) {
             e.preventDefault();
-            $('#hidden-form').slideToggle('slow');
+            $('#hidden-form').slideToggle('fast');
         });
     });
 </script>

@@ -29,7 +29,7 @@ public class UsuarioServlet extends HttpServlet {
             request.getSession().setAttribute("usuario", user);
             if (user.getRol().equals("Admin")) {
                 request.getSession().setAttribute("rol", "Admin");
-                response.sendRedirect("bienvenida.jsp");
+                response.sendRedirect("bienvenidaAdmin.jsp");
             } else if (user.getRol().equals("User")) {
                 request.getSession().setAttribute("rol", "User");
                 response.sendRedirect("bienvenidaUser.jsp");

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" session="true"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
 <!DOCTYPE html>
 <html>
@@ -8,21 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="shortcut icon" href="assets/img/DALL稥.ico" />
+  <link rel="shortcut icon" href="assets/img/DALL路E.ico" />
   <style>
-    /* Estilo personalizado para la barra de navegaci髇 */
+    /* Estilo personalizado para la barra de navegaci贸n */
     .navbar-custom {
       background-color: #000; /* Fondo negro */
     }
 
-    /* Estilo para las opciones de navegaci髇 */
+    /* Estilo para las opciones de navegaci贸n */
     .navbar-custom .nav-link {
       position: relative;
       color: #fff; /* Texto blanco */
-      transition: color 0.2s; /* Transici髇 de color al pasar el cursor */
+      transition: color 0.2s; /* Transici贸n de color al pasar el cursor */
     }
 
-    /* Estilo para la animaci髇 al pasar el cursor */
+    /* Estilo para la animaci贸n al pasar el cursor */
     .navbar-custom .nav-link::after {
       content: '';
       position: absolute;
@@ -30,14 +30,14 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: forestgreen; /* L韓ea azul */
-      transform: scaleX(0); /* Inicialmente la l韓ea no se muestra */
-      transition: transform 0.3s; /* Transici髇 de la animaci髇 */
+      background-color: forestgreen; /* L铆nea azul */
+      transform: scaleX(0); /* Inicialmente la l铆nea no se muestra */
+      transition: transform 0.3s; /* Transici贸n de la animaci贸n */
     }
 
-    /* Estilo para la animaci髇 al pasar el cursor */
+    /* Estilo para la animaci贸n al pasar el cursor */
     .navbar-custom .nav-link:hover::after {
-      transform: scaleX(1); /* Al pasar el cursor, la l韓ea aparece */
+      transform: scaleX(1); /* Al pasar el cursor, la l铆nea aparece */
     }
     .container {
       background-color: rgba(255, 255, 255, 0.8); /* Fondo con transparencia */
@@ -57,9 +57,9 @@
   </style>
 </head>
 <body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
-<!-- Barra de navegaci髇 -->
+<!-- Barra de navegaci贸n -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
-  <a class="navbar-brand" href="#"><img src="assets/img/DALL稥.png" width="40" height="40">  SRP UTEZ</a>
+  <a class="navbar-brand" href="#"><img src="assets/img/DALL路E.png" width="40" height="40">  SRP UTEZ</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -70,7 +70,13 @@
         <a class="nav-link" href="#">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="vistaEntradasUser.jsp">Mis Registros</a>
+        <a class="nav-link" href="vistaEntradasAdmin.jsp">Mis Registros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="vistaConsultasAdmin.jsp">Consulta</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>
@@ -83,15 +89,15 @@
 %>
 <div class="container mt-4">
   <center>
-    <div class="jumbotron">
-      <h1 class="display-4">
-        <!-- Usamos la informaci髇 del usuario para personalizar el mensaje de bienvenida -->
-        ienvenido a SRP Utez, <%= usuario.getNombre() %>!
-      </h1>
-      <p class="lead">Gracias por iniciar sesi髇 en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
-      <hr class="my-4">
-      <img src="assets/img/BlackLogo.png">
-    </div>
+  <div class="jumbotron">
+    <h1 class="display-4">
+      <!-- Usamos la informaci贸n del usuario para personalizar el mensaje de bienvenida -->
+      隆Bienvenido a SRP Utez, Admin <%= usuario.getNombre() %>!
+    </h1>
+    <p class="lead">Gracias por iniciar sesi贸n en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
+    <hr class="my-4">
+    <img src="assets/img/fingerprint.png" height="256" width="244">
+  </div>
   </center>
 </div>
 <footer class="footer text-center" style="color: white">

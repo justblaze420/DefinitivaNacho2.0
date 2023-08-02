@@ -7,16 +7,30 @@ import java.sql.Timestamp;
 import java.util.Date;
 import com.example.definitivanacho2.model.Usuario;
 import com.example.definitivanacho2.utils.MysqlConnector;
+import java.util.List;
+import java.util.ArrayList;
+
 public class DaoRegistro {
     private Connection conn;
     public DaoRegistro() {
         MysqlConnector conn = new MysqlConnector();
         this.conn = conn.connect();
     }
+    public void update(Registro registro) {
+        try {
+            String query = "UPDATE Registros SET horaSalida = ? WHERE idRegistro = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setTimestamp(1, registro.getHoraSalida());
+            preparedStatement.setInt(2, registro.getIdRegistro());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void save(Registro registro) {
-        String sql = "INSERT INTO registro (idPersonal, horaEntrada) VALUES (?, now())";
+        String sql = "INSERT INTO Registros (idPersonal, horaEntrada) VALUES (?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, registro.getIdPersonal());
@@ -40,4 +54,49 @@ public class DaoRegistro {
             e.printStackTrace();
         }
     }
+
+    public Registro findOpenRegistro(int idPersonal) {
+        String sql = "SELECT * FROM Registros WHERE idPersonal = ? AND horaSalida IS NULL ORDER BY horaEntrada DESC LIMIT 1";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, idPersonal);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Registro registro = new Registro();
+                    registro.setIdRegistro(rs.getInt("idRegistro"));
+                    registro.setIdPersonal(rs.getInt("idPersonal"));
+                    registro.setHoraEntrada(rs.getTimestamp("horaEntrada"));
+                    return registro;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public List<Registro> findAllById(int idPersonal) {
+        List<Registro> registros = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Registros WHERE idPersonal = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setInt(1, idPersonal);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Registro registro = new Registro();
+                registro.setIdRegistro(resultSet.getInt("idRegistro"));
+                registro.setIdPersonal(resultSet.getInt("idPersonal"));
+                registro.setHoraEntrada(resultSet.getTimestamp("horaEntrada"));
+                registro.setHoraSalida(resultSet.getTimestamp("horaSalida"));
+                registros.add(registro);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return registros;
+    }
+
 }

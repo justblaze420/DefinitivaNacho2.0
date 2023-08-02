@@ -74,10 +74,10 @@
         <a class="nav-link" href="#">Mis Registros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="registro.jsp">Registrar Usuarios</a>
+        <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
+        <a class="nav-link" href="vistaConsultasAdmin.jsp">Consulta</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>

@@ -76,6 +76,6 @@ public class RegistroServlet extends HttpServlet {
             // Insertar el nuevo usuario
             dao.insert(new Usuario(idPersonal, nombre, apellido, rol, usuario, contrasena));
         }
-        resp.sendRedirect("registro_exitoso.jsp");
+        resp.sendRedirect("vistaConsultas.jsp");
     }
 }

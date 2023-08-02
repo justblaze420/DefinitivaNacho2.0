@@ -1,7 +1,7 @@
 package com.example.definitivanacho2.model;
 
 import java.sql.Timestamp;
-
+import java.util.List;
 public class Registro {
     private int idRegistro;
     private int idPersonal;

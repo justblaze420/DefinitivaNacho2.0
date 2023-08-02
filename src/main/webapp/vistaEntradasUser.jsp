@@ -68,16 +68,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="bienvenidaAdmin.jsp">Inicio</a>
+        <a class="nav-link" href="bienvenidaUser.jsp">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Mis Registros</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="registro.jsp">Registrar Usuarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>

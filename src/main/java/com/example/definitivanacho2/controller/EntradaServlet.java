@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @WebServlet(name = "EntradaServlet", value = "/entrada-servlet")
 public class EntradaServlet extends HttpServlet {
@@ -31,18 +32,31 @@ public class EntradaServlet extends HttpServlet {
             request.getSession().setAttribute("usuario", user);
 
             java.util.Date date = new java.util.Date();
-            Timestamp horaEntrada = new Timestamp(date.getTime());
-
-            Registro registro = new Registro();
-            registro.setIdPersonal(idPersonal);
-            registro.setHoraEntrada(horaEntrada);
+            Timestamp currentTimestamp = new Timestamp(date.getTime());
 
             DaoRegistro daoRegistro = new DaoRegistro();
-            daoRegistro.save(registro);
+            Registro registro = daoRegistro.findOpenRegistro(idPersonal);
+
+            if (registro != null) {
+                // Ya existe un registro de entrada para este usuario, así que registra la hora de salida
+                registro.setHoraSalida(currentTimestamp);
+                daoRegistro.update(registro);
+            } else {
+                // No hay registro de entrada para este usuario, así que crea uno nuevo
+                registro = new Registro();
+                registro.setIdPersonal(idPersonal);
+                registro.setHoraEntrada(currentTimestamp);
+                daoRegistro.save(registro);
+            }
+
+            List<Registro> registros = daoRegistro.findAllById(idPersonal);
+            request.setAttribute("registros", registros);
 
             request.setAttribute("registro", registro); // req cambiado por request
             RequestDispatcher dispatcher = request.getRequestDispatcher("entrada.jsp"); // req cambiado por request
             dispatcher.forward(request, response);
+
+
         } else {
 
             PrintWriter out = response.getWriter();
@@ -97,6 +111,8 @@ public class EntradaServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
+
+
     }
 
 

@@ -24,7 +24,7 @@
 </head>
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
-    <a class="navbar-brand" href="bienvenida.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
+    <a class="navbar-brand" href="bienvenidaAdmin.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,13 +32,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="bienvenida.jsp">Inicio</a>
+          <a class="nav-link" href="bienvenidaAdmin.jsp">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Registro</a>
+          <a class="nav-link" href="vistaEntradasAdmin.jsp">Mis Registros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
+          <a class="nav-link" href="#">Registrar Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="vistaConsultasAdmin.jsp">Consulta</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>
@@ -49,8 +52,12 @@
 </header>
 <script>
   window.onload = function() {
+    // Obtén los parámetros de la URL
     var urlParams = new URLSearchParams(window.location.search);
+
+    // Verifica si el parámetro 'nuevo' está presente y si es igual a 'true'
     if (urlParams.get('nuevo') === 'true') {
+      // Si es así, limpia el formulario
       document.getElementById('nombre').value = '';
       document.getElementById('apellido').value = '';
       document.getElementById('rol').selectedIndex = 0; // Para seleccionar el primer item en el dropdown

@@ -1,13 +1,12 @@
 <%@ page import="com.example.definitivanacho2.model.Usuario" %>
-<%@ page import="com.example.definitivanacho2.model.Registro" %>
 <%@ page import="com.example.definitivanacho2.model.DAO.DaoUsuario" %>
-<%@ page import="com.example.definitivanacho2.model.DAO.DaoRegistro" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
-  <title>Registros User</title>
+    <title>Consultas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
@@ -71,13 +70,13 @@
         <a class="nav-link" href="bienvenidaAdmin.jsp">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Mis Registros</a>
+        <a class="nav-link" href="vistaEntradasAdmin.jsp">Mis Registros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="registro.jsp">Registrar Usuarios</a>
+        <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
+        <a class="nav-link" href="#">Consulta</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>
@@ -88,28 +87,56 @@
 
 <div class="container mt-4" style="font-family: Arial">
   <div class="jumbotron">
-    <h1>Mis Registros</h1>
+
+    <h1>Usuarios</h1>
     <table class="table table-striped table-bordered">
+      <thead>
       <tr>
-        <th>ID de Registro</th>
-        <th>Hora de Entrada</th>
-        <th>Hora de Salida</th>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Rol</th>
+        <th>Usuario</th>
+        <th>Fecha de Registro</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
+      </thead>
+      <tbody>
       <%
-        DaoRegistro daoRegistro = new DaoRegistro();
-        Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuario");
-        int idPersonal = usuarioActual.getIdPersonal();
-        List<Registro> registros = daoRegistro.findAllById(idPersonal);
-        request.getSession().setAttribute("registros", registros);
+        request.getSession().removeAttribute("Usuario");
+        DaoUsuario daoUsr = new DaoUsuario();
+        request.getSession().setAttribute("Usuario", daoUsr.findAll());
       %>
-      <c:forEach var="registro" items="${sessionScope.registros}">
+      <c:forEach items="${Usuario}" var="u">
         <tr>
-          <td>${registro.idRegistro}</td>
-          <td>${registro.horaEntrada}</td>
-          <td>${registro.horaSalida}</td>
+          <td>${u.idPersonal}</td>
+          <td>${u.nombre}</td>
+          <td>${u.apellido}</td>
+          <td>${u.rol}</td>
+          <td>${u.usuario}</td>
+          <td>${u.registro}</td>
+
+          <td><a class="btn btn-outline-info"
+                 href="registro-servlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
+          <td><a class="btn btn-outline-danger"
+                 href="registro-servlet?id=${u.idPersonal}&operacion=delete">X</a>
+            <script>
+              function mostrarAlerta() {
+                alert("Seguro de eliminar el registro?");
+                window.location.href = "home1.html"; // Enlace a redirigir
+              }
+            </script>
+          </td>
+
+
         </tr>
+
+
       </c:forEach>
+      </tbody>
     </table>
+
 
   </div>
 </div>
