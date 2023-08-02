@@ -77,7 +77,10 @@
         <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="vistaConsultasAdmin.jsp">Consulta</a>
+        <a class="nav-link" href="vistaConsultasAdmin.jsp">Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Entradas/Salidas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>

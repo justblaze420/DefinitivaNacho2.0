@@ -41,7 +41,10 @@
           <a class="nav-link" href="#">Registrar Usuarios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="vistaConsultasAdmin.jsp">Consulta</a>
+          <a class="nav-link" href="vistaConsultasAdmin.jsp">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="vistaRegistrosAdmin.jsp">Entradas/Salidas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>

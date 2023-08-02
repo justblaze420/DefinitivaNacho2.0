@@ -79,7 +79,10 @@
         <a class="nav-link" href="registro.jsp">Registro</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="vistaConsultas.jsp">Consulta</a>
+        <a class="nav-link" href="vistaConsultas.jsp">Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="vistaRegistros.jsp">Entradas/Salidas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciosesion.jsp">Cerrar Sesion</a>

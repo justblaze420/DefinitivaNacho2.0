@@ -1,7 +1,8 @@
 package com.example.definitivanacho2.model.DAO;
 
 import com.example.definitivanacho2.model.Registro;
-
+import com.example.definitivanacho2.model.Usuario;
+import com.example.definitivanacho2.model.DAO.DaoUsuario;
 import java.sql.*;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -97,6 +98,36 @@ public class DaoRegistro {
             e.printStackTrace();
         }
         return registros;
+    }
+
+
+    public List<Registro> findAll() {
+        List<Registro> listaRegistros = new ArrayList<>();
+        MysqlConnector con = new MysqlConnector();
+        Connection conexion = con.connect();
+        try {
+            PreparedStatement stmt = conexion.prepareStatement(
+                    "SELECT r.idRegistro, r.idPersonal, r.horaEntrada, r.horaSalida, p.nombre, p.apellido, TIMEDIFF(r.horaSalida, r.horaEntrada) AS duracion " +
+                            "FROM registros r " +
+                            "JOIN personal p ON r.idPersonal = p.idPersonal");
+            ResultSet res = stmt.executeQuery();
+            while (res.next()) {
+                Registro registro = new Registro();
+                registro.setIdRegistro(res.getInt("idRegistro"));
+                registro.setIdPersonal(res.getInt("idPersonal"));
+                registro.setHoraEntrada(res.getTimestamp("horaEntrada"));
+                registro.setHoraSalida(res.getTimestamp("horaSalida"));
+                registro.setNombre(res.getString("nombre")); // Asegúrate de que tu clase Registro tenga estos campos y métodos
+                registro.setApellido(res.getString("apellido"));
+                registro.setDuracion(res.getTime("duracion"));
+                listaRegistros.add(registro);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaRegistros;
     }
 
 }

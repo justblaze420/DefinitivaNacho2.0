@@ -59,7 +59,6 @@ public class RegistroServlet extends HttpServlet {
         String idPersonalParam = req.getParameter("idPersonal");
         if (idPersonalParam != null && !idPersonalParam.isEmpty()) {
             int idPersonal = Integer.parseInt(req.getParameter("idPersonal"));
-            //Es una operacion de update
             dao.update(idPersonal, new Usuario(idPersonal, nombre, apellido, rol, usuario, contrasena));
             req.getSession().removeAttribute("usuario");
         } else {
