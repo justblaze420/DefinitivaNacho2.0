@@ -23,17 +23,18 @@ public class UsuarioServlet extends HttpServlet {
         Usuario user = dao.findOneByUsuarioAndPassword(usuario, contrasena);
 
         if (usuario.equals("SRP_Admin") && contrasena.equals("Nabocadosol")) {
+            request.getSession().setAttribute("tipoSesion", "adminBackup");
             response.sendRedirect("bienvenida.jsp");
         } else if (user != null) {
-            request.getSession().setAttribute("rol", "Admin");
-            request.getSession().setAttribute("usuario", user);
             if (user.getRol().equals("Admin")) {
                 request.getSession().setAttribute("rol", "Admin");
+                request.getSession().setAttribute("tipoSesion", "admin");
                 response.sendRedirect("bienvenidaAdmin.jsp");
             } else if (user.getRol().equals("User")) {
                 request.getSession().setAttribute("rol", "User");
+                request.getSession().setAttribute("tipoSesion", "user");
                 response.sendRedirect("bienvenidaUser.jsp");
-            }
+            } request.getSession().setAttribute("usuario", user);
         } else {
 
             PrintWriter out = response.getWriter();

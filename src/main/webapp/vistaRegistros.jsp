@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<c:if test="${tipoSesion == 'adminBackup'}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
     <a class="navbar-brand" href="bienvenida.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -92,4 +93,16 @@
 <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
 <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </body>
+</c:if>
+<c:if test="${tipoSesion != 'adminBackup'}">
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
+            <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
+            <hr class="my-4">
+            <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
+            <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
+        </div>
+    </div>
+</c:if>
 </html>

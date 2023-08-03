@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
-<%
-  session.removeAttribute("atributoAEliminar");
-%>
-<%
-  session.invalidate();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +10,7 @@
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
+
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
@@ -62,6 +58,7 @@
     }
   </style>
 </head>
+<c:if test="${tipoSesion == 'adminBackup'}">
 <body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
 <!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
@@ -70,7 +67,7 @@
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" href="#">Inicio</a>
@@ -98,7 +95,7 @@
       <!-- Usamos la información del usuario para personalizar el mensaje de bienvenida -->
       ¡Bienvenido a SRP Utez, Admin!
     </h1>
-    <p class="lead">Gracias por iniciar sesión en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
+    <p class="lead">SRP: Sistema Registro Personal UTEZ. Puedes registrar usuarios, y consultar registros personales de asistencia.</p>
     <hr class="my-4">
     <img src="assets/img/fingerprint.png" height="256" width="244">
   </div>
@@ -112,4 +109,17 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
+</c:if>
+<c:if test="${tipoSesion != 'adminBackup'}">
+        <div class="container mt-4">
+          <div class="jumbotron">
+            <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
+            <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
+            <hr class="my-4">
+            <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
+            <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
+          </div>
+        </div>
+</c:if>
 </html>

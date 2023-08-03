@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" session="true"%>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
@@ -56,6 +57,7 @@
     }
   </style>
 </head>
+<c:if test="${tipoSesion == 'user'}">
 <body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
 <!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
@@ -102,4 +104,16 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</c:if>
+<c:if test="${tipoSesion != 'user'}">
+  <div class="container mt-4">
+    <div class="jumbotron">
+      <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
+      <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
+      <hr class="my-4">
+      <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
+      <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
+    </div>
+  </div>
+</c:if>
 </html>

@@ -58,6 +58,8 @@
     }
   </style>
 </head>
+<c:if test="${tipoSesion == 'admin'}">
+  <c:if test="${not empty sesion}">
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
   <a class="navbar-brand" href="bienvenidaAdmin.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
@@ -68,7 +70,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="bienvenidaAdmin.jsp">Inicio</a>
+        <a class="nav-link" href="bienvenida.jsp">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Mis Registros</a>
@@ -114,4 +116,31 @@
   </div>
 </div>
 </body>
+  </c:if>
+</c:if>
+<c:if test="${tipoSesion != 'admin'}">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+    <a class="navbar-brand" href="index.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.jsp">Inicio</a>
+        </li>
+        <div class="container mt-4">
+          <div class="jumbotron">
+            <h1 class="display-4">Error 404</h1>
+            <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
+            <hr class="my-4">
+            <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
+            <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</c:if>
 </html>

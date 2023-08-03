@@ -9,8 +9,12 @@
 <head>
   <title>Registros User</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
   <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
+  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
@@ -58,6 +62,7 @@
     }
   </style>
 </head>
+<c:if test="${tipoSesion == 'admin'}">
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
   <a class="navbar-brand" href="bienvenidaAdmin.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
@@ -92,29 +97,52 @@
 <div class="container mt-4" style="font-family: Arial">
   <div class="jumbotron">
     <h1>Mis Registros</h1>
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>ID de Registro</th>
-        <th>Hora de Entrada</th>
-        <th>Hora de Salida</th>
-      </tr>
-      <%
-        DaoRegistro daoRegistro = new DaoRegistro();
-        Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuario");
-        int idPersonal = usuarioActual.getIdPersonal();
-        List<Registro> registros = daoRegistro.findAllById(idPersonal);
-        request.getSession().setAttribute("registros", registros);
-      %>
-      <c:forEach var="registro" items="${sessionScope.registros}">
+    <div class="table-responsive">
+      <table id="example" class="table table-striped table-bordered" style="font-family: Arial">
+        <thead>
         <tr>
-          <td>${registro.idRegistro}</td>
-          <td>${registro.horaEntrada}</td>
-          <td>${registro.horaSalida}</td>
+          <th>ID de Registro</th>
+          <th>Hora de Entrada</th>
+          <th>Hora de Salida</th>
         </tr>
-      </c:forEach>
-    </table>
-
+        </thead>
+        <%
+          DaoRegistro daoRegistro = new DaoRegistro();
+          Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuario");
+          int idPersonal = usuarioActual.getIdPersonal();
+          List<Registro> registros = daoRegistro.findAllById(idPersonal);
+          request.getSession().setAttribute("registros", registros);
+        %>
+        <tbody>
+        <c:forEach var="registro" items="${sessionScope.registros}">
+          <tr>
+            <td>${registro.idRegistro}</td>
+            <td>${registro.horaEntrada}</td>
+            <td>${registro.horaSalida}</td>
+          </tr>
+        </c:forEach>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </body>
+</c:if>
+<c:if test="${tipoSesion != 'admin'}">
+  <div class="container mt-4">
+    <div class="jumbotron">
+      <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
+      <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
+      <hr class="my-4">
+      <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
+      <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
+    </div>
+  </div>
+</c:if>
 </html>

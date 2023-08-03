@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%
-    session.removeAttribute("atributoAEliminar");
-%>
+<%@ page import="com.example.definitivanacho2.controller.UsuarioServlet" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     session.invalidate();
 %>
