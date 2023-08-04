@@ -74,7 +74,7 @@ public class DaoUsuario implements DaoRepository{
         Connection con = conector.connect();
         try {
             PreparedStatement stmt =con.prepareStatement("update personal "+
-                    "set nombre = ?, apellido = ?, rol = ?, usuario = ?, contrasena = ?" + "WHERE idPersonal = ?");
+                    "set nombre = ?, apellido = ?, rol = ?, usuario = ?, contrasena = sha2(?,224)" + "WHERE idPersonal = ?");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(3, usr.getRol());
@@ -117,7 +117,7 @@ public class DaoUsuario implements DaoRepository{
 
         try {
             PreparedStatement stmt = conection.prepareStatement("insert into personal (nombre, apellido, usuario, contrasena, rol, registro)"
-                    + "values(?,?,?,?,?,now())");
+                    + "values(?,?,?,sha2(?,224),?,now())");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(5, usr.getRol());
@@ -163,7 +163,7 @@ public class DaoUsuario implements DaoRepository{
         MysqlConnector connector = new MysqlConnector();
 
         try (Connection conn = connector.connect();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM personal WHERE idPersonal = ? AND contrasena = ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM personal WHERE idPersonal = ? AND contrasena = sha2(?,224)")) {
 
             ps.setInt(1, idPersonal);
             ps.setString(2, contrasena);
@@ -191,7 +191,7 @@ public class DaoUsuario implements DaoRepository{
         MysqlConnector connector = new MysqlConnector();
 
         try (Connection conn = connector.connect();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM personal WHERE usuario = ? AND contrasena = ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM personal WHERE usuario = ? AND contrasena = sha2(?,224)")) {
 
             ps.setString(1, usuario);
             ps.setString(2, contrasena);
