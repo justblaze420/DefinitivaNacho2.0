@@ -95,14 +95,6 @@
 </body>
 </c:if>
 <c:if test="${tipoSesion != 'adminBackup'}">
-    <div class="container mt-4">
-        <div class="jumbotron">
-            <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
-            <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
-            <hr class="my-4">
-            <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
-            <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
-        </div>
-    </div>
+    <meta http-equiv="refresh" content="0;url=404.jsp" />
 </c:if>
 </html>

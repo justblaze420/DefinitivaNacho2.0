@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:if test="${tipoSesion == 'adminBackup'}">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,6 @@
     }
   </style>
 </head>
-<c:if test="${tipoSesion == 'adminBackup'}">
 <body background="https://quo.mx/wp-content/uploads/2023/03/ciberseguridad-en-mexico-1.png">
 <!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
@@ -109,17 +109,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
+</html>
 </c:if>
 <c:if test="${tipoSesion != 'adminBackup'}">
-        <div class="container mt-4">
-          <div class="jumbotron">
-            <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
-            <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
-            <hr class="my-4">
-            <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
-            <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
-          </div>
-        </div>
+  <meta http-equiv="refresh" content="0;url=404.jsp" />
 </c:if>
-</html>

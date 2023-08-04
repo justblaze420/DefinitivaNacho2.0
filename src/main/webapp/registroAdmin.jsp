@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${tipoSesion == 'admin'}">
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
     }
   </style>
 </head>
-<c:if test="${tipoSesion == 'admin'}">
+
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
     <a class="navbar-brand" href="bienvenidaAdmin.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
@@ -76,7 +77,7 @@
 <div class="container mt-4">
   <div class="jumbotron">
     <h1 class="display-4">Registro de Usuarios</h1>
-    <form action="registro-servlet" method="post">
+    <form action="registroadminservlet" method="post">
       <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" class="form-control" id="nombre" name="nombre" value="${usuario.nombre}" placeholder="Ingresa tu nombre" required>
@@ -111,16 +112,9 @@
   </div>
 </div>
 </body>
+
+</html>
 </c:if>
 <c:if test="${tipoSesion != 'admin'}">
-  <div class="container mt-4">
-    <div class="jumbotron">
-      <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
-      <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
-      <hr class="my-4">
-      <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
-      <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
-    </div>
-  </div>
+  <meta http-equiv="refresh" content="0;url=404.jsp" />
 </c:if>
-</html>

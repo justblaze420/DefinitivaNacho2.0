@@ -5,6 +5,7 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${tipoSesion == 'user'}">
 <html>
 <head>
   <title>Registros User</title>
@@ -62,7 +63,7 @@
     }
   </style>
 </head>
-<c:if test="${tipoSesion == 'user'}">
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
   <a class="navbar-brand" href="bienvenidaAdmin.jsp"><img src="assets/img/DALL·E.png" width="40" height="40">  SRP UTEZ</a>
@@ -124,16 +125,9 @@
 <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
 <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </body>
+
+</html>
 </c:if>
 <c:if test="${tipoSesion != 'user'}">
-  <div class="container mt-4">
-    <div class="jumbotron">
-      <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> Error 404</h1>
-      <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
-      <hr class="my-4">
-      <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
-      <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
-    </div>
-  </div>
+  <meta http-equiv="refresh" content="0;url=404.jsp" />
 </c:if>
-</html>

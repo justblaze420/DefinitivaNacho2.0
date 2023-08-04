@@ -10,18 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Reportes.jasper.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroAdminServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/filter/AuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/404.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/UsuarioServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/UsuarioServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenida.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenidaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenidaAdmin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenidaUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenidaUser.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaEntradas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaEntradas.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaEntradas.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaEntradasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaEntradasAdmin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaEntradasUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaEntradasUser.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" afterDir="false" />
@@ -69,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Robbie Daniel/OneDrive/Documentos/Repositories/DefinitivaNacho2.0/src/main/webapp",
+    "last_opened_file_path": "C:/Users/Robbie Daniel/OneDrive/Documentos/Repositories/DefinitivaNacho2.0/src/main/java/com/example/definitivanacho2",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,13 +88,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\java\com\example\definitivanacho2" />
       <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\webapp" />
       <recent name="C:\Users\Robbie Daniel\Downloads\DefinitivaNacho2.0\src\main\java\com\example\definitivanacho2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\webapp" />
       <recent name="C:\Users\Robbie Daniel\Downloads\integradora\DefinitivaNacho2.0\src\main\webapp\assets\img" />
       <recent name="C:\Users\Robbie Daniel\Downloads\integradora\DefinitivaNacho2.0\src\main\webapp" />
       <recent name="C:\Users\Robbie Daniel\Downloads\DefinitivaNacho2.0\src\main\java\com\example\definitivanacho2" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.definitivanacho2.controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -219,6 +227,7 @@
       <workItem from="1690996699757" duration="9579000" />
       <workItem from="1691030031067" duration="1078000" />
       <workItem from="1691038332430" duration="9975000" />
+      <workItem from="1691112788167" duration="6189000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
