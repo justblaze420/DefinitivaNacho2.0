@@ -24,7 +24,8 @@ import com.example.definitivanacho2.controller.UsuarioServlet;
         "/vistaEntradasAdmin.jsp",
         "/vistaEntradasUser.jsp",
         "/vistaRegistros.jsp",
-        "/vistaRegistrosAdmin.jsp"
+        "/vistaRegistrosAdmin.jsp",
+        "/confirmarSalida.jsp"
 })
 public class AuthenticationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

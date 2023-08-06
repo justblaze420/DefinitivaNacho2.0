@@ -51,6 +51,7 @@ public class RegistroServlet extends HttpServlet {
         String nombre = req.getParameter("nombre");
         String apellido = req.getParameter("apellido");
         String rol = req.getParameter("rol");
+        int idDepartamento = Integer.parseInt(req.getParameter("idDepartamento"));
         String usuario = req.getParameter("usuario");
         String contrasena = req.getParameter("contrasena");
 
@@ -59,7 +60,7 @@ public class RegistroServlet extends HttpServlet {
         String idPersonalParam = req.getParameter("idPersonal");
         if (idPersonalParam != null && !idPersonalParam.isEmpty()) {
             int idPersonal = Integer.parseInt(req.getParameter("idPersonal"));
-            dao.update(idPersonal, new Usuario(idPersonal, nombre, apellido, rol, usuario, contrasena));
+            dao.update(idPersonal, new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena));
             req.getSession().removeAttribute("usuario");
         } else {
             int idPersonal;
@@ -73,7 +74,7 @@ public class RegistroServlet extends HttpServlet {
             } while (exists);
 
             // Insertar el nuevo usuario
-            dao.insert(new Usuario(idPersonal, nombre, apellido, rol, usuario, contrasena));
+            dao.insert(new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena));
         }
         resp.sendRedirect("vistaConsultas.jsp");
     }

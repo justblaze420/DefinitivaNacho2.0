@@ -1,5 +1,6 @@
 package com.example.definitivanacho2.model.DAO;
 import com.example.definitivanacho2.model.Usuario;
+import com.example.definitivanacho2.model.Departamento;
 import com.example.definitivanacho2.utils.MysqlConnector;
 
 import java.sql.*;
@@ -20,7 +21,7 @@ public class DaoUsuario implements DaoRepository{
         MysqlConnector con = new MysqlConnector();
         Connection conexion = con.connect();
         try {
-            PreparedStatement stmt = conexion.prepareStatement("SELECT * FROM personal");
+            PreparedStatement stmt = conexion.prepareStatement("SELECT personal.*, departamento.nombre AS nombreDepartamento FROM personal JOIN departamento ON personal.idDepartamento = departamento.idDepartamento\n");
             ResultSet res = stmt.executeQuery();
             while (res.next()) {
                 Usuario usr = new Usuario();
@@ -28,9 +29,9 @@ public class DaoUsuario implements DaoRepository{
                 usr.setNombre(res.getString("nombre"));
                 usr.setApellido(res.getString("apellido"));
                 usr.setRol(res.getString("rol"));
+                usr.setNombreDepartamento(res.getString("nombreDepartamento"));
                 usr.setUsuario(res.getString("usuario"));
                 usr.setContrasena(res.getString("contrasena"));
-                usr.getIdDepartamento();
                 usr.setRegistro(res.getDate("registro"));
                 listaUsuarios.add(usr);
             }
@@ -54,9 +55,9 @@ public class DaoUsuario implements DaoRepository{
                 usr.setNombre(res.getString("nombre"));
                 usr.setApellido(res.getString("apellido"));
                 usr.setRol(res.getString("rol"));
+                usr.setIdDepartamento(res.getInt("idDepartamento"));
                 usr.setUsuario(res.getString("usuario"));
                 usr.setContrasena(res.getString("contrasena"));
-                usr.getIdDepartamento();
                 usr.setRegistro(res.getDate("registro"));
             } else {
                 usr.setUsuario("No existe el Usuario con el id " + idPersonal);
@@ -74,13 +75,14 @@ public class DaoUsuario implements DaoRepository{
         Connection con = conector.connect();
         try {
             PreparedStatement stmt =con.prepareStatement("update personal "+
-                    "set nombre = ?, apellido = ?, rol = ?, usuario = ?, contrasena = sha2(?,224)" + "WHERE idPersonal = ?");
+                    "set nombre = ?, apellido = ?, rol = ?, idDepartamento = ?, usuario = ?, contrasena = sha2(?,224)" + "WHERE idPersonal = ?");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(3, usr.getRol());
-            stmt.setString(4, usr.getUsuario());
-            stmt.setString(5, usr.getContrasena());
-            stmt.setInt(6, usr.getIdPersonal());
+            stmt.setInt(4, usr.getIdDepartamento());
+            stmt.setString(5, usr.getUsuario());
+            stmt.setString(6, usr.getContrasena());
+            stmt.setInt(7, usr.getIdPersonal());
             if (stmt.executeUpdate()>0) res = true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -116,11 +118,13 @@ public class DaoUsuario implements DaoRepository{
         Connection conection = con.connect();
 
         try {
-            PreparedStatement stmt = conection.prepareStatement("insert into personal (nombre, apellido, usuario, contrasena, rol, registro)"
-                    + "values(?,?,?,sha2(?,224),?,now())");
+
+            PreparedStatement stmt = conection.prepareStatement("insert into personal (nombre, apellido, usuario, contrasena, rol, idDepartamento, registro)"
+                    + "values(?,?,?,sha2(?,224),?,?,now())");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(5, usr.getRol());
+            stmt.setInt(6, usr.getIdDepartamento());
             stmt.setString(3, usr.getUsuario());
             stmt.setString(4, usr.getContrasena());
 
@@ -145,6 +149,7 @@ public class DaoUsuario implements DaoRepository{
                 usr.setNombre(res.getString("nombre"));
                 usr.setApellido(res.getString("apellido"));
                 usr.setRol(res.getString("rol"));
+                usr.setIdDepartamento((res.getInt("idDepartamento")));
                 usr.setUsuario(res.getString("usuario"));
                 usr.setContrasena(res.getString("contrasena"));
                 usr.setRegistro(res.getDate("registro"));
@@ -175,6 +180,7 @@ public class DaoUsuario implements DaoRepository{
                         rs.getString("nombre"),
                         rs.getString("apellido"),
                         rs.getString("rol"),
+                        rs.getInt("idDepartamento"),
                         rs.getString("usuario"),
                         rs.getString("contrasena")
                 );
@@ -203,6 +209,7 @@ public class DaoUsuario implements DaoRepository{
                         rs.getString("nombre"),
                         rs.getString("apellido"),
                         rs.getString("rol"),
+                        rs.getInt("idDepartamento"),
                         rs.getString("usuario"),
                         rs.getString("contrasena")
                 );
@@ -226,9 +233,10 @@ public class DaoUsuario implements DaoRepository{
                     String nombre = rs.getString("nombre");
                     String apellido = rs.getString("apellido");
                     String rol = rs.getString("rol");
+                    int idDepartamento = rs.getInt("idDepartamento");
                     String usuario = rs.getString("usuario");
                     String contrasena = rs.getString("contrasena");
-                    return new Usuario(idPersonal, nombre, apellido, rol, usuario, contrasena);
+                    return new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena);
                 }
             }
         } catch (SQLException e) {

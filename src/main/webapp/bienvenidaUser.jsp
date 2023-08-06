@@ -90,7 +90,8 @@
         <!-- Usamos la información del usuario para personalizar el mensaje de bienvenida -->
         ¡Bienvenido a SRP Utez, <%= usuario.getNombre() %>!
       </h1>
-      <p class="lead">Gracias por iniciar sesión en el SRP: Sistema Registro Personal UTEZ. Ahora puedes registrar tus entradas y salidas, y consultar tus registros personales de asistencia.</p>
+      <h3>ID: <%= usuario.getIdPersonal() %></h3>
+      <p class="lead">SRP: Sistema Registro Personal UTEZ. Puedes consultar tus registros personales de asistencia.</p>
       <hr class="my-4">
       <img src="assets/img/BlackLogo.png">
     </div>

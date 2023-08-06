@@ -7,6 +7,7 @@
 %>
 
 <%
+    session.setAttribute("tipoSesion", null);
     session.invalidate();
 %>
 <html>

@@ -110,10 +110,10 @@
             <a href="#"><img src="assets/img/fingerprint.png" id="show-form" style="height:100px; width:100px; position: relative; left: 400%;"></a>
             <div class="form-group" id="hidden-form" style="display: none; position: relative; left: 40%;" >
 
-                <form action="entrada-servlet" method="post" style="font-family: Verdana">
-                    <label for="id">ID:</label>
+                <form action="entrada-servlet" method="post" style="font-family: Arial">
+                    <label for="idPersonal">ID:</label>
                     <input type="number" name="idPersonal" id="idPersonal" required>
-                    <label for="clave">Clave:</label>
+                    <label for="contrasena">Clave:</label>
                     <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu clave" required>
                     <input type="submit" class="btn btn-outline-dark" value="Entrar" style="position: relative; left: 33%;">
                 </form>

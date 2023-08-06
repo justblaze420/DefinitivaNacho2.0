@@ -100,6 +100,7 @@
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Rol</th>
+        <th>Departamento</th>
         <th>Usuario</th>
         <th>Fecha de Registro</th>
         <th>Editar</th>
@@ -108,7 +109,6 @@
       </thead>
       <tbody>
       <%
-        request.getSession().removeAttribute("Usuario");
         DaoUsuario daoUsr = new DaoUsuario();
         request.getSession().setAttribute("Usuario", daoUsr.findAll());
       %>
@@ -118,20 +118,19 @@
           <td>${u.nombre}</td>
           <td>${u.apellido}</td>
           <td>${u.rol}</td>
+          <th>${u.nombreDepartamento}</th>
           <td>${u.usuario}</td>
           <td>${u.registro}</td>
 
           <td><a class="btn btn-outline-info"
                  href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
-          <td><a class="btn btn-outline-danger"
-                 href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a>
-            <script>
-              function mostrarAlerta() {
-                alert("Seguro de eliminar el registro?");
-                window.location.href = "home1.html"; // Enlace a redirigir
-              }
-            </script>
-          </td>
+          <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
+            <td><a class="btn btn-outline-danger"
+                   href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a></td>
+          </c:if>
+          <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
+            <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>
+          </c:if>
 
 
         </tr>

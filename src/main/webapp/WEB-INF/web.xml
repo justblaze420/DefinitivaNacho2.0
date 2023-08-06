@@ -22,6 +22,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
         <url-pattern>/vistaEntradasUser.jsp</url-pattern>
         <url-pattern>/vistaRegistros.jsp</url-pattern>
         <url-pattern>/vistaRegistrosAdmin.jsp</url-pattern>
+        <url-pattern>/confirmarSalida.jsp</url-pattern>
     </filter-mapping>
     <error-page>
         <error-code>404</error-code>

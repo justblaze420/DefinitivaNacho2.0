@@ -107,9 +107,11 @@ public class DaoRegistro {
         Connection conexion = con.connect();
         try {
             PreparedStatement stmt = conexion.prepareStatement(
-                    "SELECT r.idRegistro, r.idPersonal, r.horaEntrada, r.horaSalida, p.nombre, p.apellido, TIMEDIFF(r.horaSalida, r.horaEntrada) AS duracion " +
+                    "SELECT r.idRegistro, r.idPersonal, r.horaEntrada, r.horaSalida, p.nombre, p.apellido, d.nombre AS nombreDepartamento, TIME_FORMAT(TIMEDIFF(r.horaSalida, r.horaEntrada), '%H:%i:%s') AS duracion " +
                             "FROM registros r " +
-                            "JOIN personal p ON r.idPersonal = p.idPersonal");
+                            "JOIN personal p ON r.idPersonal = p.idPersonal " +
+                            "JOIN departamento d ON p.idDepartamento = d.idDepartamento"
+            );
             ResultSet res = stmt.executeQuery();
             while (res.next()) {
                 Registro registro = new Registro();
@@ -119,6 +121,7 @@ public class DaoRegistro {
                 registro.setHoraSalida(res.getTimestamp("horaSalida"));
                 registro.setNombre(res.getString("nombre")); // Asegúrate de que tu clase Registro tenga estos campos y métodos
                 registro.setApellido(res.getString("apellido"));
+                registro.setNombreDepartamento(res.getString("nombreDepartamento"));
                 registro.setDuracion(res.getTime("duracion"));
                 listaRegistros.add(registro);
 

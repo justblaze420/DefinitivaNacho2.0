@@ -65,6 +65,7 @@
                 <th>ID Personal</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Departamento</th>
                 <th>Fecha de Entrada</th>
                 <th>Fecha de Salida</th>
                 <th>Duración</th>
@@ -79,6 +80,7 @@
                     <td>${r.idPersonal}</td>
                     <td>${r.nombre}</td>
                     <td>${r.apellido}</td>
+                    <td>${r.nombreDepartamento}</td>
                     <td>${r.horaEntrada}</td>
                     <td>${r.horaSalida}</td>
                     <td>${r.duracion}</td>

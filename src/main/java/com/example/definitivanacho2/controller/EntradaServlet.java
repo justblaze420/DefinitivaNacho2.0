@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
@@ -22,6 +23,22 @@ public class EntradaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        boolean confirmarSalida = Boolean.parseBoolean(request.getParameter("confirmarSalida"));
+        if (confirmarSalida) {
+            HttpSession session = request.getSession(false);
+            Registro registro = (Registro) session.getAttribute("registroAbierto");
+            if (registro != null) {
+                java.util.Date date = new java.util.Date();
+                Timestamp currentTimestamp = new Timestamp(date.getTime());
+                registro.setHoraSalida(currentTimestamp);
+                DaoRegistro daoRegistro = new DaoRegistro();
+                daoRegistro.update(registro);
+                request.getSession().setAttribute("registro", registro);
+                response.sendRedirect("salida.jsp");
+                return;
+            }
+        }
+
         int idPersonal = Integer.parseInt(request.getParameter("idPersonal"));
         String contrasena = request.getParameter("contrasena");
 
@@ -30,33 +47,41 @@ public class EntradaServlet extends HttpServlet {
 
         if (user != null) {
             request.getSession().setAttribute("usuario", user);
-
             java.util.Date date = new java.util.Date();
             Timestamp currentTimestamp = new Timestamp(date.getTime());
 
             DaoRegistro daoRegistro = new DaoRegistro();
             Registro registro = daoRegistro.findOpenRegistro(idPersonal);
 
-            if (registro != null) {
-                // Ya existe un registro de entrada para este usuario, así que registra la hora de salida
-                registro.setHoraSalida(currentTimestamp);
-                daoRegistro.update(registro);
-            } else {
-                // No hay registro de entrada para este usuario, así que crea uno nuevo
+            if (registro == null) {
                 registro = new Registro();
                 registro.setIdPersonal(idPersonal);
                 registro.setHoraEntrada(currentTimestamp);
                 daoRegistro.save(registro);
+            } else {
+                long diferenciaMillis = currentTimestamp.getTime() - registro.getHoraEntrada().getTime();
+                long diferenciaHoras = diferenciaMillis / (1000 * 60 * 60);
+
+                if (diferenciaHoras < 1) {
+                    HttpSession session = request.getSession(true);
+                    request.getSession().setAttribute("registro", registro);
+                    session.setAttribute("registroAbierto", registro);
+                    session.setAttribute("tipoSesion", "registro");
+                    response.sendRedirect("confirmarSalida.jsp");
+                    return;
+                } else {
+                    registro.setHoraSalida(currentTimestamp);
+                    daoRegistro.update(registro);
+                    request.getSession().setAttribute("registro", registro);
+                    response.sendRedirect("salida.jsp");
+                    return;
+                }
             }
 
             List<Registro> registros = daoRegistro.findAllById(idPersonal);
             request.setAttribute("registros", registros);
-
-            request.setAttribute("registro", registro); // req cambiado por request
-            RequestDispatcher dispatcher = request.getRequestDispatcher("entrada.jsp"); // req cambiado por request
-            dispatcher.forward(request, response);
-
-
+            request.getSession().setAttribute("registro", registro);
+            response.sendRedirect("entrada.jsp");
         } else {
 
             PrintWriter out = response.getWriter();
@@ -111,8 +136,6 @@ public class EntradaServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
-
-
     }
 
 

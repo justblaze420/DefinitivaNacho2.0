@@ -11,6 +11,7 @@ public class Registro {
     private String nombre; // Campo para el nombre
     private String apellido;
     private Time duracion;
+    private String nombreDepartamento;
 
     public Registro() {}
 
@@ -75,5 +76,12 @@ public class Registro {
     // Setter para duración
     public void setDuracion(Time duracion) {
         this.duracion = duracion;
+    }
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
+
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
     }
 }

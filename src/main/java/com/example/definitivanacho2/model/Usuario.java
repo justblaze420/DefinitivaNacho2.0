@@ -9,12 +9,13 @@ public class Usuario {
     private String usuario;
     private String contrasena;
     private int idDepartamento;
+    private String nombreDepartamento;
     private Date registro;
 
     public Usuario(){
     }
 
-    public Usuario(int idPersonal, String nombre, String apellido, String rol, String usuario, String contrasena) {
+    public Usuario(int idPersonal, String nombre, String apellido, String rol, int idDepartamento, String usuario, String contrasena) {
         this.idPersonal = idPersonal;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -22,6 +23,7 @@ public class Usuario {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.idDepartamento = idDepartamento;
+        this.nombreDepartamento = nombreDepartamento;
         this.registro = registro;
     }
 
@@ -90,5 +92,11 @@ public class Usuario {
         this.registro = registro;
     }
 
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
 
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
+    }
 }

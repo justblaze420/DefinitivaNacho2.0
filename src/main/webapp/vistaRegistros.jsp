@@ -30,7 +30,7 @@
                 <a class="nav-link" href="bienvenida.jsp">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="registro.jsp">Registro</a>
+                <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registro.jsp?nuevo=true">Registro</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="vistaConsultas.jsp">Usuarios</a>
@@ -61,6 +61,7 @@
                 <th>ID Personal</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Departamento</th>
                 <th>Fecha de Entrada</th>
                 <th>Fecha de Salida</th>
                 <th>Duración</th>
@@ -75,6 +76,7 @@
                     <td>${r.idPersonal}</td>
                     <td>${r.nombre}</td>
                     <td>${r.apellido}</td>
+                    <td>${r.nombreDepartamento}</td>
                     <td>${r.horaEntrada}</td>
                     <td>${r.horaSalida}</td>
                     <td>${r.duracion}</td>

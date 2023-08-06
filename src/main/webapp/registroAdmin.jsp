@@ -8,6 +8,7 @@
   <title>Registro de Usuarios</title>
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
   <style>
@@ -91,11 +92,32 @@
         <select class="form-control" id="rol" name="rol" placeholder="Ingresa el rol"
                 required>
           <option value="User" ${usuario.rol == 'user' ? 'selected' :
-                  ''}>Usuario</option>
+                  ''}>Empleado</option>
           <option value="Admin" ${usuario.rol == 'admin' ? 'selected' :
                   ''}>Administrador</option>
           <option value="Admin" ${usuario.rol == 'admin' ? 'selected' : ''}>Recursos
             Humanos</option>
+        </select>
+      </div>
+      <script>
+        $(document).ready(function() {
+          $('#rol').change(function() {
+            if ($(this).val() == 'Admin') {
+              $('#idDepartamento').val('4');
+            }
+          });
+        });
+      </script>
+      <div class="form-group">
+        <label for="idDepartamento">Departamento:</label>
+        <select class="form-control" id="idDepartamento" name="idDepartamento" placeholder="Ingresa el Departamento" required>
+          <option value="1" ${usuario.idDepartamento == '1' ? 'selected' : ''}>Profesores</option>
+          <option value="2" ${usuario.idDepartamento == '2' ? 'selected' : ''}>Seguridad</option>
+          <option value="3" ${usuario.idDepartamento == '3' ? 'selected' : ''}>Limpieza</option>
+          <option value="4" ${usuario.idDepartamento == '4' ? 'selected' : ''}>Recursos Humanos</option>
+          <option value="5" ${usuario.idDepartamento == '5' ? 'selected' : ''}>Administrador</option>
+          <option value="6" ${usuario.idDepartamento == '6' ? 'selected' : ''}>Psiquiatría</option>
+          <option value="7" ${usuario.idDepartamento == '7' ? 'selected' : ''}>Áreas Sociales</option>
         </select>
       </div>
       <div class="form-group">
