@@ -11,12 +11,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Registros</title>
+    <!-- Hojas de estilo (CSS) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="assets/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
-    <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
     <link rel="stylesheet" href="style.css" >
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
+
+    <!-- Scripts de JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
+
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
@@ -37,7 +45,7 @@
                 <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Usuarios</a>
+                <a class="nav-link" href="vistaConsultasAdmin.jsp">Usuarios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="vistaRegistrosAdmin.jsp">Entradas/Salidas</a>
@@ -58,7 +66,7 @@
     <div class="jumbotron">
         <h1 class="display-4">Registros</h1>
         <div class="table-responsive">
-        <table id="example" class="table table-striped table-bordered" style="font-family: Arial">
+            <table id="example" class="table table-striped table-bordered" style="font-family: Arial">
             <thead>
             <tr>
                 <th>ID Registro</th>
@@ -90,14 +98,11 @@
             </tbody>
         </table>
             </div>
+        <form action="ReporteServlet" method="post">
+            <button type="submit" class="btn btn-outline-danger"><img src="assets/img/pdf.png" width="20" height="20">Generar PDF</button>
+        </form>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
-<script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </body>
 
 </html>

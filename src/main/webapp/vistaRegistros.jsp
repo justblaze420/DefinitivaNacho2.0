@@ -10,12 +10,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Registros</title>
+    <!-- Hojas de estilo (CSS) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="assets/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
-    <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
     <link rel="stylesheet" href="style.css" >
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
+
+    <!-- Scripts de JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </head>
 <c:if test="${tipoSesion == 'adminBackup'}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
@@ -86,14 +93,11 @@
             </tbody>
         </table>
             </div>
+        <form action="ReporteServlet" method="post">
+            <button type="submit" class="btn btn-outline-danger"><img src="assets/img/pdf.png" width="20" height="20">Generar PDF</button>
+        </form>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
-<script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </body>
 </c:if>
 <c:if test="${tipoSesion != 'adminBackup'}">

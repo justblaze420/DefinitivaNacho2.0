@@ -9,7 +9,17 @@
     <title>Consultas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="style.css" >
   <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
+
+  <!-- Scripts de JavaScript -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
@@ -93,7 +103,8 @@
   <div class="jumbotron">
 
     <h1>Usuarios</h1>
-    <table class="table table-striped table-bordered">
+    <div class="table-responsive">
+    <table id="example" class="table table-striped table-bordered table-hover">
       <thead>
       <tr>
         <th>ID</th>
@@ -122,13 +133,14 @@
           <td>${u.usuario}</td>
           <td>${u.registro}</td>
 
-          <td><a class="btn btn-outline-info"
-                 href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
           <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
+            <td><a class="btn btn-outline-info"
+                   href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
             <td><a class="btn btn-outline-danger"
                    href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a></td>
           </c:if>
           <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
+            <td><span title="No puedes modificarte" class="btn btn-outline-info disabled">Modificar</span></td>
             <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>
           </c:if>
 
@@ -139,7 +151,7 @@
       </c:forEach>
       </tbody>
     </table>
-
+    </div>
 
   </div>
 </div>
