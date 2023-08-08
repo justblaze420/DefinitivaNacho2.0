@@ -57,8 +57,13 @@
 <body>
 <%
     DaoRegistro daoReg = new DaoRegistro();
-    List<Registro> registros = daoReg.findAll();
-    request.setAttribute("registros", registros);
+    List<Registro> registros = null;
+    try {
+        registros = daoReg.findAll();
+        request.setAttribute("registros", registros);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 %>
 <div class="container mt-4">
     <div class="jumbotron">
@@ -79,20 +84,28 @@
             </tr>
             </thead>
             <tbody>
-
-            <c:forEach items="${registros}" var="r">
-                <tr>
-                    <td>${r.idRegistro}</td>
-                    <td>${r.idPersonal}</td>
-                    <td>${r.nombre}</td>
-                    <td>${r.apellido}</td>
-                    <td>${r.nombreDepartamento}</td>
-                    <td>${r.horaEntrada}</td>
-                    <td>${r.horaSalida}</td>
-                    <td>${r.duracion}</td>
-                    <!-- Otros campos de registro aquí -->
-                </tr>
-            </c:forEach>
+            <c:choose>
+                <c:when test="${not empty registros}">
+                    <c:forEach items="${registros}" var="r">
+                        <tr>
+                            <td>${r.idRegistro}</td>
+                            <td>${r.idPersonal}</td>
+                            <td>${r.nombre}</td>
+                            <td>${r.apellido}</td>
+                            <td>${r.nombreDepartamento}</td>
+                            <td>${r.horaEntrada}</td>
+                            <td>${r.horaSalida}</td>
+                            <td>${r.duracion}</td>
+                            <!-- Otros campos de registro aquí -->
+                        </tr>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <tr>
+                        <td colspan="8" style="text-align: center;">No hay registros disponibles</td>
+                    </tr>
+                </c:otherwise>
+            </c:choose>
             </tbody>
         </table>
             </div>
