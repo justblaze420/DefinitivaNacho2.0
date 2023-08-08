@@ -4,6 +4,8 @@ public class Departamento {
     private int idDepartamento;
     private String nombre;
 
+    public Departamento() {
+    }
     public Departamento(int idDepartamento, String nombre) {
         this.idDepartamento = idDepartamento;
         this.nombre = nombre;

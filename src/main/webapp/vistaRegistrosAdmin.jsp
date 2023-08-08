@@ -6,7 +6,11 @@
 <%@ page import="com.example.definitivanacho2.model.Usuario" %>
 <%@ page import="com.example.definitivanacho2.model.Registro" %>
 <%@ page import="java.util.List" %>
-<!DOCTYPE html>
+    <%
+        session.removeAttribute("update");
+    %>
+
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">

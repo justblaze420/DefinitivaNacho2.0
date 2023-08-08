@@ -3,7 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
-<!DOCTYPE html>
+  <%
+    session.removeAttribute("update");
+  %>
+  <!DOCTYPE html>
 <html>
 <head>
   <title>Sistema Registro Personal UTEZ - Bienvenida</title>

@@ -100,7 +100,7 @@
         </thead>
       <%
         DaoRegistro daoRegistro = new DaoRegistro();
-        Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuario");
+        Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuarioActual");
         int idPersonal = usuarioActual.getIdPersonal();
         List<Registro> registros = daoRegistro.findAllById(idPersonal);
         request.getSession().setAttribute("registros", registros);

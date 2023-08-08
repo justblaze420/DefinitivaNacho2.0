@@ -6,7 +6,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:if test="${tipoSesion == 'admin'}">
-<html>
+  <%
+    session.removeAttribute("update");
+  %>
+  <html>
 <head>
   <title>Registros User</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,7 +112,7 @@
         </thead>
         <%
           DaoRegistro daoRegistro = new DaoRegistro();
-          Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuario");
+          Usuario usuarioActual = (Usuario) request.getSession().getAttribute("usuarioActual");
           int idPersonal = usuarioActual.getIdPersonal();
           List<Registro> registros = daoRegistro.findAllById(idPersonal);
           request.getSession().setAttribute("registros", registros);

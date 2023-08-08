@@ -75,14 +75,13 @@ public class DaoUsuario implements DaoRepository{
         Connection con = conector.connect();
         try {
             PreparedStatement stmt =con.prepareStatement("update personal "+
-                    "set nombre = ?, apellido = ?, rol = ?, idDepartamento = ?, usuario = ?, contrasena = sha2(?,224)" + "WHERE idPersonal = ?");
+                    "set nombre = ?, apellido = ?, rol = ?, idDepartamento = ?, usuario = ?" + "WHERE idPersonal = ?");
             stmt.setString(1, usr.getNombre());
             stmt.setString(2, usr.getApellido());
             stmt.setString(3, usr.getRol());
             stmt.setInt(4, usr.getIdDepartamento());
             stmt.setString(5, usr.getUsuario());
-            stmt.setString(6, usr.getContrasena());
-            stmt.setInt(7, usr.getIdPersonal());
+            stmt.setInt(6, usr.getIdPersonal());
             if (stmt.executeUpdate()>0) res = true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -244,5 +243,26 @@ public class DaoUsuario implements DaoRepository{
         }
         return null;
     }
+
+    public Departamento getDepartamentoPorId(int id) {
+        Departamento departamento = null;
+        String sql = "SELECT * FROM departamento WHERE idDepartamento = ?";
+        try (Connection conn = this.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                departamento = new Departamento();
+                departamento.setIdDepartamento(rs.getInt("idDepartamento"));
+                departamento.setNombre(rs.getString("nombre"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return departamento;
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package com.example.definitivanacho2.controller;
 
 import com.example.definitivanacho2.model.Usuario;
+import com.example.definitivanacho2.model.Departamento;
 import com.example.definitivanacho2.model.DAO.DaoUsuario;
 
 import java.io.IOException;
@@ -26,7 +27,10 @@ public class UsuarioServlet extends HttpServlet {
             request.getSession().setAttribute("tipoSesion", "adminBackup");
             response.sendRedirect("bienvenida.jsp");
         } else if (user != null) {
-            if (user.getRol().equals("Admin")) {
+            Departamento departamento = dao.getDepartamentoPorId(user.getIdDepartamento());
+            request.getSession().setAttribute("usuarioActual", user);
+            request.getSession().setAttribute("departamento", departamento);
+            if (user.getRol().equals("Admin") || user.getRol().equals("Admin RH")) {
                 request.getSession().setAttribute("rol", "Admin");
                 request.getSession().setAttribute("tipoSesion", "admin");
                 response.sendRedirect("bienvenidaAdmin.jsp");

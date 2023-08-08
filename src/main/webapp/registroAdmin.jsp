@@ -95,15 +95,20 @@
                   ''}>Empleado</option>
           <option value="Admin" ${usuario.rol == 'admin' ? 'selected' :
                   ''}>Administrador</option>
-          <option value="Admin" ${usuario.rol == 'admin' ? 'selected' : ''}>Recursos
+          <option value="Admin RH" ${usuario.rol == 'admin' ? 'selected' : ''}>Recursos
             Humanos</option>
         </select>
       </div>
       <script>
         $(document).ready(function() {
           $('#rol').change(function() {
-            if ($(this).val() == 'Admin') {
+            if ($(this).val() == 'Admin RH') {
               $('#idDepartamento').val('4');
+            }
+          });
+          $('#rol').change(function() {
+            if ($(this).val() == 'Admin') {
+              $('#idDepartamento').val('5');
             }
           });
         });
@@ -124,10 +129,33 @@
         <label for="usuario">Usuario:</label>
         <input type="text" class="form-control" id="usuario" name="usuario" value="${usuario.usuario}" placeholder="Ingresa tu usuario" required>
       </div>
-      <div class="form-group">
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" class="form-control" id="contrasena" name="contrasena" value="${usuario.contrasena}" placeholder="Ingresa tu contraseña" required>
-      </div>
+      <c:choose>
+        <c:when test="${sessionScope.update == 'update'}">
+          <div class="form-group" id="newPasswordDiv" style="display:none;">
+            <label for="newPassword">Nueva Contraseña:</label>
+            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Nueva contraseña">
+          </div>
+          <button id="changePasswordBtn" class="btn btn-outline-info">Cambiar contraseña</button>
+          <input type="hidden" id="passwordChangeRequested" name="passwordChangeRequested" value="false">
+
+          <script>
+            document.getElementById("changePasswordBtn").addEventListener("click", function(event) {
+              // Previniendo la acción por defecto del botón
+              event.preventDefault();
+
+              const newPasswordDiv = document.getElementById("newPasswordDiv");
+              newPasswordDiv.style.display = "block";
+              document.getElementById("passwordChangeRequested").value = "true";
+            });
+          </script>
+        </c:when>
+        <c:otherwise>
+          <div class="form-group">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" value="${usuario.contrasena}" placeholder="Ingresa tu contraseña" required>
+          </div>
+        </c:otherwise>
+      </c:choose>
       <input type="hidden" name="idPersonal" id="idPersonal" value="${usuario.idPersonal}">
       <button type="submit" class="btn btn-outline-primary">Registrarse</button>
     </form>

@@ -37,6 +37,7 @@ public class RegistroServlet extends HttpServlet {
                 int id = Integer.parseInt(req.getParameter("id"));
                 Usuario usr = (Usuario) dao.findOne(id);
                 usr.setIdPersonal(id);
+                req.getSession().setAttribute("update", "update");
                 req.getSession().setAttribute("usuario", usr);
                 respuesta = "registro.jsp";
             }
@@ -54,28 +55,43 @@ public class RegistroServlet extends HttpServlet {
         int idDepartamento = Integer.parseInt(req.getParameter("idDepartamento"));
         String usuario = req.getParameter("usuario");
         String contrasena = req.getParameter("contrasena");
-
+        String passwordChangeRequested = req.getParameter("passwordChangeRequested");
 
         DaoUsuario dao = new DaoUsuario();
         String idPersonalParam = req.getParameter("idPersonal");
-        if (idPersonalParam != null && !idPersonalParam.isEmpty()) {
-            int idPersonal = Integer.parseInt(req.getParameter("idPersonal"));
-            dao.update(idPersonal, new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena));
-            req.getSession().removeAttribute("usuario");
-        } else {
-            int idPersonal;
-            boolean exists = true;
-            do {
-                idPersonal = 100 + new Random().nextInt(900); // Genera un número aleatorio entre 100 y 999.
-                Usuario user = dao.findOneById(idPersonal);
-                if (user == null) {
-                    exists = false;
-                }
-            } while (exists);
 
-            // Insertar el nuevo usuario
-            dao.insert(new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena));
+        if ("true".equals(passwordChangeRequested)) {
+            String newPassword = req.getParameter("newPassword");
+            if(newPassword != null && !newPassword.isEmpty()) {
+                try (Connection con = new MysqlConnector().connect()) {
+                    PreparedStatement stmt = con.prepareStatement("UPDATE personal SET contrasena = sha2(?,224) WHERE idPersonal = ?");
+                    stmt.setString(1, newPassword);
+                    stmt.setInt(2, Integer.parseInt(idPersonalParam));
+                    stmt.executeUpdate();
+                } catch(SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        } else {
+            if (idPersonalParam != null && !idPersonalParam.isEmpty()) {
+                int idPersonal = Integer.parseInt(req.getParameter("idPersonal"));
+                dao.update(idPersonal, new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena));
+                req.getSession().removeAttribute("usuario");
+            } else {
+                int idPersonal;
+                boolean exists = true;
+                do {
+                    idPersonal = 100 + new Random().nextInt(900);
+                    Usuario user = dao.findOneById(idPersonal);
+                    if (user == null) {
+                        exists = false;
+                    }
+                } while (exists);
+
+                dao.insert(new Usuario(idPersonal, nombre, apellido, rol, idDepartamento, usuario, contrasena));
+            }
         }
+
         resp.sendRedirect("vistaConsultas.jsp");
     }
 }

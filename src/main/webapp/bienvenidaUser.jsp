@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" session="true"%>
 <%@page import="com.example.definitivanacho2.model.Usuario"%>
+  <%@page import="com.example.definitivanacho2.model.Departamento"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +82,9 @@
   </div>
 </nav>
 <%
-  Usuario usuario = (Usuario) session.getAttribute("usuario");
+  Usuario usuario = (Usuario) session.getAttribute("usuarioActual");
+  Departamento departamento = (Departamento) session.getAttribute("departamento");
+
 %>
 <div class="container mt-4">
   <center>
@@ -90,8 +93,10 @@
         <!-- Usamos la información del usuario para personalizar el mensaje de bienvenida -->
         ¡Bienvenido a SRP Utez, <%= usuario.getNombre() %>!
       </h1>
+      <h2><%= usuario.getApellido() %></h2>
       <h3>ID: <%= usuario.getIdPersonal() %></h3>
       <p class="lead">SRP: Sistema Registro Personal UTEZ. Puedes consultar tus registros personales de asistencia.</p>
+      <h4>Departamento: <%= departamento.getNombre() %></h4>
       <hr class="my-4">
       <img src="assets/img/BlackLogo.png">
     </div>
