@@ -28,6 +28,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
+    <!-- Scripts de Data Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 </head>
 
@@ -75,6 +79,32 @@
     <div class="jumbotron">
         <h1 class="display-4">Registros</h1>
         <div class="table-responsive">
+            <input type="text" name="daterange"/>
+            <input type="button" class="btn btn-outline-info" value="Limpiar Rango" onclick="location.reload();">
+            <script>
+                $(function() {
+                    // Inicializa el DataTable y guárdalo en una variable.
+                    var table = $('#example').DataTable();
+
+                    $('input[name="daterange"]').daterangepicker({
+                        opens: 'left'
+                    }, function(start, end, label) {
+                        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+
+                        // Filtrado en el DataTable basado en el rango
+                        table.rows().every(function(index, tabLoop, rowLoop) {
+                            var date = new Date(this.data()[5]);
+
+                            if (date >= start.toDate() && date <= end.toDate()) {
+                                $(this.node()).show();
+                            } else {
+                                $(this.node()).hide();
+                            }
+                        });
+                        table.page.len(25).draw();
+                    });
+                });
+            </script>
             <table id="example" class="table table-striped table-bordered" style="font-family: Arial">
             <thead>
             <tr>

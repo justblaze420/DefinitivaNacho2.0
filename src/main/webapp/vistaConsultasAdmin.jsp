@@ -1,4 +1,5 @@
 <%@ page import="com.example.definitivanacho2.model.Usuario" %>
+<%@page import="com.example.definitivanacho2.model.Departamento"%>
 <%@ page import="com.example.definitivanacho2.model.DAO.DaoUsuario" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -104,8 +105,14 @@
 
 <div class="container mt-4" style="font-family: Arial">
   <div class="jumbotron">
-
+    <%
+      Usuario usuario = (Usuario) session.getAttribute("usuarioActual");
+      Departamento departamento = (Departamento) session.getAttribute("departamento");
+      DaoUsuario daoUsr = new DaoUsuario();
+      request.getSession().setAttribute("Usuario", daoUsr.findAll());
+    %>
     <h1>Usuarios</h1>
+    <h5>Departamento: <%= departamento.getNombre() %></h5>
     <div class="table-responsive">
     <table id="example" class="table table-striped table-bordered table-hover">
       <thead>
@@ -122,10 +129,6 @@
       </tr>
       </thead>
       <tbody>
-      <%
-        DaoUsuario daoUsr = new DaoUsuario();
-        request.getSession().setAttribute("Usuario", daoUsr.findAll());
-      %>
       <c:forEach items="${Usuario}" var="u">
         <tr>
           <td>${u.idPersonal}</td>
@@ -136,15 +139,25 @@
           <td>${u.usuario}</td>
           <td>${u.registro}</td>
 
-          <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
-            <td><a class="btn btn-outline-info"
-                   href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
-            <td><a class="btn btn-outline-danger"
-                   href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a></td>
+          <c:if test="${sessionScope.usuario.rol != 'Admin RH'}">
+            <!-- Si el usuario en la lista NO es el mismo que el usuario en sesión, muestra los botones -->
+            <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
+              <td><a class="btn btn-outline-info"
+                     href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
+              <td><a class="btn btn-outline-danger"
+                     href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a></td>
+            </c:if>
+            <!-- Si el usuario en la lista ES el mismo que el usuario en sesión, muestra los botones deshabilitados -->
+            <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
+              <td><span title="No puedes modificarte" class="btn btn-outline-info disabled">Modificar</span></td>
+              <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>
+            </c:if>
           </c:if>
-          <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
-            <td><span title="No puedes modificarte" class="btn btn-outline-info disabled">Modificar</span></td>
-            <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>
+
+          <!-- Si el usuario en sesión ES "Admin RH", muestra botones deshabilitados para todos los usuarios -->
+          <c:if test="${sessionScope.usuario.rol == 'Admin RH'}">
+            <td><span title="Función no disponible" class="btn btn-outline-info disabled">Modificar</span></td>
+            <td><span title="Función no disponible" class="btn btn-outline-danger disabled">X</span></td>
           </c:if>
 
 

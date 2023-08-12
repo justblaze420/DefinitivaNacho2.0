@@ -10,12 +10,24 @@
 <head>
   <title>Registros User</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Hojas de estilo (CSS) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css">
   <link rel="stylesheet" type="text/css" href="assets/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
-  <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
   <link rel="stylesheet" href="style.css" >
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="assets/img/DALL·E.ico" />
+
+  <!-- Scripts de JavaScript -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
+  <!-- Scripts de Data Range Picker -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
   <style>
     /* Estilo personalizado para la barra de navegación */
     .navbar-custom {
@@ -90,6 +102,33 @@
   <div class="jumbotron">
     <h1>Mis Registros</h1>
     <div class="table-responsive">
+      <input type="text" name="daterange"/>
+      <input type="button" class="btn btn-outline-info" value="Limpiar Rango" onclick="location.reload();">
+      <script>
+        $(function() {
+          // Inicializa el DataTable y guárdalo en una variable.
+          var table = $('#example').DataTable();
+
+          $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+          }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+
+            // Filtrado en el DataTable basado en el rango
+            table.rows().every(function(index, tabLoop, rowLoop) {
+              var date = new Date(this.data()[1]);
+
+              if (date >= start.toDate() && date <= end.toDate()) {
+                $(this.node()).show();
+              } else {
+                $(this.node()).hide();
+              }
+            });
+
+            table.page.len(25).draw();
+          });
+        });
+      </script>
       <table id="example" class="table table-striped table-bordered" style="font-family: Arial">
         <thead>
         <tr>
@@ -118,12 +157,7 @@
     </div>
   </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" charset="utf8" src="assets/DataTables/datatables.min.js"></script>
-<script type="text/javascript" charset="utf8" src="assets/js/main.js"></script>
 </body>
 
 </html>
