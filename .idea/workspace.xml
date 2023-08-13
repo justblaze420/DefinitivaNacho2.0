@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Si no hay registros manda un aviso en su tabla">
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaEntradasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaEntradasAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaEntradasUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaEntradasUser.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" afterDir="false" />
     </list>
@@ -228,7 +224,8 @@
       <workItem from="1691527536561" duration="98000" />
       <workItem from="1691557254287" duration="2075000" />
       <workItem from="1691723287636" duration="958000" />
-      <workItem from="1691781017159" duration="20658000" />
+      <workItem from="1691781017159" duration="20921000" />
+      <workItem from="1691888753490" duration="9562000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -384,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691518654961</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional">
+      <created>1691820060583</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1691820060583</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +436,8 @@
     <MESSAGE value="Generar Reportes funcional y datatables corregidos" />
     <MESSAGE value="Modificar contraseñas corregido y funcional, proyecto 99% terminado" />
     <MESSAGE value="Si no hay registros manda un aviso en su tabla" />
-    <option name="LAST_COMMIT_MESSAGE" value="Si no hay registros manda un aviso en su tabla" />
+    <MESSAGE value="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

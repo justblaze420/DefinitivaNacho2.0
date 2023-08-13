@@ -77,24 +77,69 @@
                 <input type="button" class="btn btn-outline-info" value="Limpiar Rango" onclick="location.reload();">
                 <script>
                     $(function() {
-                        // Inicializa el DataTable y guárdalo en una variable.
                         var table = $('#example').DataTable();
 
                         $('input[name="daterange"]').daterangepicker({
                             opens: 'left'
                         }, function(start, end, label) {
-                            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                            var totals = {};
+                            var grandTotalHoras = 0;
+                            var grandTotalMinutos = 0;
 
-                            // Filtrado en el DataTable basado en el rango
                             table.rows().every(function(index, tabLoop, rowLoop) {
                                 var date = new Date(this.data()[5]);
+                                var idPersonal = this.data()[1];
+                                var nombrePersonal = this.data()[2];
+                                var apellidoPersonal = this.data()[3];
+                                var duration = this.data()[7].split(":");
+                                var hours = parseInt(duration[0]);
+                                var minutes = parseInt(duration[1]);
+
+                                if (isNaN(hours) || isNaN(minutes)) {
+                                    $(this.node()).hide();  // Oculta el registro si no es válido
+                                    return;
+                                }
 
                                 if (date >= start.toDate() && date <= end.toDate()) {
                                     $(this.node()).show();
+
+                                    if (totals[idPersonal]) {
+                                        totals[idPersonal].horas += hours;
+                                        totals[idPersonal].minutos += minutes;
+                                    } else {
+                                        totals[idPersonal] = { nombre: nombrePersonal, apellido: apellidoPersonal, horas: hours, minutos: minutes };
+                                    }
+
+                                    if (totals[idPersonal].minutos >= 60) {
+                                        totals[idPersonal].horas += 1;
+                                        totals[idPersonal].minutos -= 60;
+                                    }
+
+                                    grandTotalHoras += hours;
+                                    grandTotalMinutos += minutes;
+
+                                    if (grandTotalMinutos >= 60) {
+                                        grandTotalHoras += 1;
+                                        grandTotalMinutos -= 60;
+                                    }
                                 } else {
                                     $(this.node()).hide();
                                 }
                             });
+
+                            var totalsDiv = $("#totals");
+                            totalsDiv.empty();
+
+                            var tableContent = '<table border="1" class="table table-hover table-bordered table-striped" style="font-family: Arial"><thead><tr><th>ID Personal</th><th>Nombre</th><th>Horas</th><th>Minutos</th></tr></thead><tbody>';
+
+                            for (var id in totals) {
+                                tableContent += "<tr><td>" + id + "</td><td>" + totals[id].nombre + " " + totals[id].apellido + "</td><td>" + totals[id].horas + "</td><td>" + totals[id].minutos + "</td></tr>";
+                            }
+
+                            tableContent += "</tbody></table>";
+                            tableContent += "<strong style='font-family: Arial'>Total Horas: " + grandTotalHoras + " - Total Minutos: " + grandTotalMinutos + "</strong>";
+
+                            totalsDiv.append(tableContent);
                             table.page.len(25).draw();
                         });
                     });
@@ -138,10 +183,11 @@
                     </c:choose>
                     </tbody>
                 </table>
+                <form action="ReporteServlet" method="post">
+                    <button type="submit" class="btn btn-outline-danger"><img src="assets/img/pdf.png" width="20" height="20">Generar PDF</button>
+                </form><br>
+                <div id="totals"></div>
             </div>
-            <form action="ReporteServlet" method="post">
-                <button type="submit" class="btn btn-outline-danger"><img src="assets/img/pdf.png" width="20" height="20">Generar PDF</button>
-            </form>
         </div>
     </div>
     </body>
