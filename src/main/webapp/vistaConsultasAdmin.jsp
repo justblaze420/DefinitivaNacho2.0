@@ -140,14 +140,12 @@
           <td>${u.registro}</td>
 
           <c:if test="${sessionScope.usuario.rol != 'Admin RH'}">
-            <!-- Si el usuario en la lista NO es el mismo que el usuario en sesión, muestra los botones -->
             <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
               <td><a class="btn btn-outline-info"
                      href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
               <td><a class="btn btn-outline-danger"
                      href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a></td>
             </c:if>
-            <!-- Si el usuario en la lista ES el mismo que el usuario en sesión, muestra los botones deshabilitados -->
             <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
               <td><span title="No puedes modificarte" class="btn btn-outline-info disabled">Modificar</span></td>
               <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>

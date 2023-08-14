@@ -9,8 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional">
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Calculo de horas por usuario y totales por rango funcionales">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Reportes.jasper.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/img/SRP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoRegistro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/Registro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" afterDir="false" />
     </list>
@@ -225,7 +232,11 @@
       <workItem from="1691557254287" duration="2075000" />
       <workItem from="1691723287636" duration="958000" />
       <workItem from="1691781017159" duration="20921000" />
-      <workItem from="1691888753490" duration="9562000" />
+      <workItem from="1691888753490" duration="9866000" />
+      <workItem from="1691987983297" duration="139000" />
+      <workItem from="1692023677981" duration="1863000" />
+      <workItem from="1692026400726" duration="645000" />
+      <workItem from="1692031706185" duration="3666000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -388,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691820060583</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Calculo de horas por usuario y totales por rango funcionales">
+      <created>1691907414694</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1691907414694</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +455,8 @@
     <MESSAGE value="Modificar contraseñas corregido y funcional, proyecto 99% terminado" />
     <MESSAGE value="Si no hay registros manda un aviso en su tabla" />
     <MESSAGE value="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional" />
+    <MESSAGE value="Calculo de horas por usuario y totales por rango funcionales" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculo de horas por usuario y totales por rango funcionales" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -67,13 +67,8 @@
 <body>
 <%
     DaoRegistro daoReg = new DaoRegistro();
-    List<Registro> registros = null;
-    try {
-        registros = daoReg.findAll();
-        request.setAttribute("registros", registros);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+    List<Registro> registros = daoReg.findAll();
+    request.setAttribute("registros", registros);
 %>
 <div class="container mt-4">
     <div class="jumbotron">
@@ -86,7 +81,18 @@
                     var table = $('#example').DataTable();
 
                     $('input[name="daterange"]').daterangepicker({
-                        opens: 'left'
+                        opens: 'left',
+                        locale: {
+                            format: 'DD/MM/YYYY',
+                            applyLabel: 'Aplicar',
+                            cancelLabel: 'Cancelar',
+                            fromLabel: 'Desde',
+                            toLabel: 'Hasta',
+                            customRangeLabel: 'Rango personalizado',
+                            daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi','Sa'],
+                            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                            firstDay: 1
+                        }
                     }, function(start, end, label) {
                         var totals = {};
                         var grandTotalHoras = 0;
@@ -143,7 +149,7 @@
                         }
 
                         tableContent += "</tbody></table>";
-                        tableContent += "<strong style='font-family: Arial'>Total Horas: " + grandTotalHoras + " - Total Minutos: " + grandTotalMinutos + "</strong>";
+                        tableContent += "<strong style='font-family: Arial'>Total Horas: " + grandTotalHoras + " - Minutos: " + grandTotalMinutos + "</strong>";
 
                         totalsDiv.append(tableContent);
                         table.page.len(25).draw();
@@ -165,8 +171,6 @@
             </tr>
             </thead>
             <tbody>
-            <c:choose>
-                <c:when test="${not empty registros}">
                     <c:forEach items="${registros}" var="r">
                         <tr>
                             <td>${r.idRegistro}</td>
@@ -180,13 +184,6 @@
                             <!-- Otros campos de registro aquí -->
                         </tr>
                     </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <tr>
-                        <td colspan="8" style="text-align: center;">No hay registros disponibles</td>
-                    </tr>
-                </c:otherwise>
-            </c:choose>
             </tbody>
         </table>
             <form action="ReporteServlet" method="post">

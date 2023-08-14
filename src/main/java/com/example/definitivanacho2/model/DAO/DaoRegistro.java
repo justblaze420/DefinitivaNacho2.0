@@ -122,7 +122,7 @@ public class DaoRegistro {
                 registro.setNombre(res.getString("nombre")); // Asegúrate de que tu clase Registro tenga estos campos y métodos
                 registro.setApellido(res.getString("apellido"));
                 registro.setNombreDepartamento(res.getString("nombreDepartamento"));
-                registro.setDuracion(res.getTime("duracion"));
+                registro.setDuracion(res.getString("duracion"));
                 listaRegistros.add(registro);
 
             }

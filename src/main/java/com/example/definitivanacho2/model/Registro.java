@@ -10,7 +10,7 @@ public class Registro {
     private Timestamp horaSalida;
     private String nombre; // Campo para el nombre
     private String apellido;
-    private Time duracion;
+    private String duracion;
     private String nombreDepartamento;
 
     public Registro() {}
@@ -69,12 +69,12 @@ public class Registro {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public Time getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
     // Setter para duración
-    public void setDuracion(Time duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
     public String getNombreDepartamento() {
