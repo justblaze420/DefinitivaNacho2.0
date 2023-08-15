@@ -146,7 +146,7 @@
                             tableContent += "<strong style='font-family: Arial'>Total Horas: " + grandTotalHoras + " - Total Minutos: " + grandTotalMinutos + "</strong>";
 
                             totalsDiv.append(tableContent);
-                            table.page.len(25).draw();
+                            table.page.len(-1).draw();
                         });
                     });
                 </script>

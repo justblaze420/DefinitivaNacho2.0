@@ -9,7 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Traduccion de la Date Range Picker y Columna Duracion ya lee mas de 24 horas funcional" />
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Base de Datos Definitiva">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/img/alert.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bienvenidaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bienvenidaAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +38,22 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="9450ccf5-645b-47e2-a9a7-47a8885cf579" />
+        <option name="url" value="https://github.com/justblaze420/DefinitivaNacho2.0.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -52,14 +78,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Robbie Daniel/OneDrive/Documentos/Repositories/DefinitivaNacho2.0/src/main/webapp/assets/DataTables&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Robbie Daniel/OneDrive/Documentos/Repositories/DefinitivaNacho2.0/src/main/webapp&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;,
@@ -68,9 +94,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\webapp" />
       <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\webapp\assets\DataTables" />
       <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\java\com\example\definitivanacho2" />
-      <recent name="C:\Users\Robbie Daniel\OneDrive\Documentos\Repositories\DefinitivaNacho2.0\src\main\webapp" />
       <recent name="C:\Users\Robbie Daniel\Downloads\DefinitivaNacho2.0\src\main\java\com\example\definitivanacho2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -225,7 +251,10 @@
       <workItem from="1691987983297" duration="139000" />
       <workItem from="1692023677981" duration="1863000" />
       <workItem from="1692026400726" duration="645000" />
-      <workItem from="1692031706185" duration="4258000" />
+      <workItem from="1692031706185" duration="4979000" />
+      <workItem from="1692046036304" duration="3499000" />
+      <workItem from="1692056051107" duration="3168000" />
+      <workItem from="1692067946419" duration="7330000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -402,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692035961842</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Base de Datos Definitiva">
+      <created>1692036612720</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1692036612720</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +489,8 @@
     <MESSAGE value="Rangos de fechas funcional y Recursos Humanos consultar no modificar funcional" />
     <MESSAGE value="Calculo de horas por usuario y totales por rango funcionales" />
     <MESSAGE value="Traduccion de la Date Range Picker y Columna Duracion ya lee mas de 24 horas funcional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Traduccion de la Date Range Picker y Columna Duracion ya lee mas de 24 horas funcional" />
+    <MESSAGE value="Base de Datos Definitiva" />
+    <option name="LAST_COMMIT_MESSAGE" value="Base de Datos Definitiva" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

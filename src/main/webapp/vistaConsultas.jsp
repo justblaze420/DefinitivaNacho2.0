@@ -136,8 +136,9 @@
 
           <td><a class="btn btn-outline-info"
                  href="registro-servlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
-          <td><a class="btn btn-outline-danger"
-                 href="registro-servlet?id=${u.idPersonal}&operacion=delete">X</a>
+          <td>
+            <button class="btn btn-outline-danger" onclick="showConfirmDelete('registro-servlet?id=${u.idPersonal}&operacion=delete')">X</button>
+          </td>
             <script>
               function mostrarAlerta() {
                 alert("Seguro de eliminar el registro?");
@@ -157,6 +158,35 @@
 
   </div>
 </div>
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="text-align: center">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteLabel">Confirmación</h5>
+        <button type="button" value="X" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar a este usuario?
+        <img src="assets/img/alert.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <a href="#" class="btn btn-outline-danger" id="confirmDeleteBtn">Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showConfirmDelete(url) {
+    // Mostrar el modal
+    var myModal = new bootstrap.Modal(document.getElementById('confirmDelete'));
+    myModal.show();
+
+    // Establecer la URL para el botón de confirmación
+    document.getElementById('confirmDeleteBtn').href = url;
+  }
+</script>
 </body>
 
 </html>

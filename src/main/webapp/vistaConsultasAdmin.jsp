@@ -124,8 +124,10 @@
         <th>Departamento</th>
         <th>Usuario</th>
         <th>Fecha de Registro</th>
+  <c:if test="${sessionScope.usuario.rol != 'Admin RH'}">
         <th>Editar</th>
         <th>Eliminar</th>
+  </c:if>
       </tr>
       </thead>
       <tbody>
@@ -143,19 +145,14 @@
             <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
               <td><a class="btn btn-outline-info"
                      href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
-              <td><a class="btn btn-outline-danger"
-                     href="registroadminservlet?id=${u.idPersonal}&operacion=delete">X</a></td>
+              <td>
+                <button class="btn btn-outline-danger" onclick="showConfirmDelete('registroadminservlet?id=${u.idPersonal}&operacion=delete')">X</button>
+              </td>
             </c:if>
             <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
               <td><span title="No puedes modificarte" class="btn btn-outline-info disabled">Modificar</span></td>
               <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>
             </c:if>
-          </c:if>
-
-          <!-- Si el usuario en sesión ES "Admin RH", muestra botones deshabilitados para todos los usuarios -->
-          <c:if test="${sessionScope.usuario.rol == 'Admin RH'}">
-            <td><span title="Función no disponible" class="btn btn-outline-info disabled">Modificar</span></td>
-            <td><span title="Función no disponible" class="btn btn-outline-danger disabled">X</span></td>
           </c:if>
 
 
@@ -169,6 +166,36 @@
 
   </div>
 </div>
+<!-- Modal para confirmar eliminación -->
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="text-align: center">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteLabel">Confirmación</h5>
+        <button type="button" value="X" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar a este usuario?
+        <img src="assets/img/alert.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <a href="#" class="btn btn-outline-danger" id="confirmDeleteBtn">Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showConfirmDelete(url) {
+    // Mostrar el modal
+    var myModal = new bootstrap.Modal(document.getElementById('confirmDelete'));
+    myModal.show();
+
+    // Establecer la URL para el botón de confirmación
+    document.getElementById('confirmDeleteBtn').href = url;
+  }
+</script>
 </body>
 
 </html>

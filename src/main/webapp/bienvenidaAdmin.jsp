@@ -103,7 +103,7 @@
   <div class="jumbotron">
     <h1 class="display-4">
       <!-- Usamos la información del usuario para personalizar el mensaje de bienvenida -->
-      ¡Bienvenido a SRP Utez, Admin <%= usuario.getNombre() %>!
+      ¡Bienvenido a SRP Utez, <%= usuario.getNombre() %>!
     </h1>
     <h2><%= usuario.getApellido() %></h2>
     <h3>ID: <%= usuario.getIdPersonal() %></h3>
