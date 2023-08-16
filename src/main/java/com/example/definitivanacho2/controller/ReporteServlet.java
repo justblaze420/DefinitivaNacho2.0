@@ -18,7 +18,7 @@ public class ReporteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1. Cargar el archivo .jasper.
-        String reportPath = "/WEB-INF/ReportesSRP.jasper"; // Asegúrate de tener el archivo .jasper correcto aquí.
+        String reportPath = "/WEB-INF/RegistrosSRP.jasper"; // Asegúrate de tener el archivo .jasper correcto aquí.
         File reportFile = new File(getServletContext().getRealPath(reportPath));
         InputStream reportStream = new FileInputStream(reportFile);
 

@@ -69,7 +69,14 @@
 <body>
 <div class="container mt-4">
   <div class="jumbotron">
-    <h1 class="display-4">Registro de Usuarios</h1>
+    <c:choose>
+      <c:when test="${sessionScope.update == 'update'}">
+        <h1 class="display-4">Modificar Usuario</h1>
+      </c:when>
+      <c:otherwise>
+        <h1 class="display-4">Registro de Usuarios</h1>
+      </c:otherwise>
+    </c:choose>
     <form action="registro-servlet" method="post">
       <div class="form-group">
         <label for="nombre">Nombre:</label>
@@ -150,7 +157,14 @@
         </c:otherwise>
       </c:choose>
       <input type="hidden" name="idPersonal" id="idPersonal" value="${usuario.idPersonal}">
-      <button type="submit" class="btn btn-outline-primary">Registrarse</button>
+      <c:choose>
+        <c:when test="${sessionScope.update == 'update'}">
+          <button type="submit" class="btn btn-outline-success">Actualizar</button>
+        </c:when>
+        <c:otherwise>
+          <button type="submit" class="btn btn-outline-primary">Registrarse</button>
+        </c:otherwise>
+      </c:choose>
     </form>
   </div>
 </div>

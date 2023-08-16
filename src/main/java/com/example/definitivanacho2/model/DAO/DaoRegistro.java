@@ -108,7 +108,7 @@ public class DaoRegistro {
         try {
             PreparedStatement stmt = conexion.prepareStatement(
                     "SELECT r.idRegistro, r.idPersonal, r.horaEntrada, r.horaSalida, p.nombre, p.apellido, d.nombre AS nombreDepartamento, TIME_FORMAT(TIMEDIFF(r.horaSalida, r.horaEntrada), '%H:%i:%s') AS duracion " +
-                            "FROM registros r " +
+                            "FROM Registros r " +
                             "JOIN personal p ON r.idPersonal = p.idPersonal " +
                             "JOIN departamento d ON p.idDepartamento = d.idDepartamento"
             );

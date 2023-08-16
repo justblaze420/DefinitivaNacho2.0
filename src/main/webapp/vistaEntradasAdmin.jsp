@@ -121,7 +121,18 @@
           var table = $('#example').DataTable();
 
           $('input[name="daterange"]').daterangepicker({
-            opens: 'left'
+            opens: 'left',
+            locale: {
+              format: 'DD/MM/YYYY',
+              applyLabel: 'Aplicar',
+              cancelLabel: 'Cancelar',
+              fromLabel: 'Desde',
+              toLabel: 'Hasta',
+              customRangeLabel: 'Rango personalizado',
+              daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi','Sa'],
+              monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+              firstDay: 1
+            }
           }, function(start, end, label) {
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 
