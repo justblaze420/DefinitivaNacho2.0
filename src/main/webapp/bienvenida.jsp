@@ -76,7 +76,7 @@
         <a class="nav-link" href="#">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registro.jsp?nuevo=true">Registro</a>
+        <a class="nav-link" href="registro.jsp?nuevo=true">Registro</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="vistaConsultas.jsp">Usuarios</a>

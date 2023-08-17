@@ -79,9 +79,11 @@
       <li class="nav-item">
         <a class="nav-link" href="vistaEntradasAdmin.jsp">Mis Registros</a>
       </li>
+  <c:if test="${sessionScope.usuario.rol != 'Admin RH'}">
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:8080/DefinitivaNacho2_war_exploded/registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
+        <a class="nav-link" href="registroAdmin.jsp?nuevo=true">Registrar Usuarios</a>
       </li>
+  </c:if>
       <li class="nav-item">
         <a class="nav-link" href="vistaConsultasAdmin.jsp">Usuarios</a>
       </li>
