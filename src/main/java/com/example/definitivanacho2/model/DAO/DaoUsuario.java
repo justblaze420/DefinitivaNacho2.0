@@ -16,12 +16,13 @@ public class DaoUsuario implements DaoRepository{
         return connector.connect();
     }
     @Override
-    public List findAll() {
+    public List<Usuario> findAll(int currentUserId) {
         List<Usuario> listaUsuarios = new ArrayList<>();
         MysqlConnector con = new MysqlConnector();
         Connection conexion = con.connect();
         try {
-            PreparedStatement stmt = conexion.prepareStatement("SELECT personal.*, departamento.nombre AS nombreDepartamento FROM personal JOIN departamento ON personal.idDepartamento = departamento.idDepartamento\n");
+            PreparedStatement stmt = conexion.prepareStatement("SELECT personal.*, departamento.nombre AS nombreDepartamento FROM personal JOIN departamento ON personal.idDepartamento = departamento.idDepartamento WHERE personal.idPersonal != ?");
+            stmt.setInt(1, currentUserId);
             ResultSet res = stmt.executeQuery();
             while (res.next()) {
                 Usuario usr = new Usuario();

@@ -111,7 +111,7 @@
       Usuario usuario = (Usuario) session.getAttribute("usuarioActual");
       Departamento departamento = (Departamento) session.getAttribute("departamento");
       DaoUsuario daoUsr = new DaoUsuario();
-      request.getSession().setAttribute("Usuario", daoUsr.findAll());
+      request.getSession().setAttribute("Usuario", daoUsr.findAll(usuario.getIdPersonal()));
     %>
     <h1>Usuarios</h1>
     <h5>Departamento: <%= departamento.getNombre() %></h5>
@@ -144,17 +144,11 @@
           <td>${u.registro}</td>
 
           <c:if test="${sessionScope.usuario.rol != 'Admin RH'}">
-            <c:if test="${u.idPersonal != sessionScope.usuario.idPersonal}">
               <td><a class="btn btn-outline-info"
                      href="registroadminservlet?id=${u.idPersonal}&operacion=update">Modificar</a></td>
               <td>
                 <button class="btn btn-outline-danger" onclick="showConfirmDelete('registroadminservlet?id=${u.idPersonal}&operacion=delete')">X</button>
               </td>
-            </c:if>
-            <c:if test="${u.idPersonal == sessionScope.usuario.idPersonal}">
-              <td><span title="No puedes modificarte" class="btn btn-outline-info disabled">Modificar</span></td>
-              <td><span title="No puedes eliminarte" class="btn btn-outline-danger disabled">X</span></td>
-            </c:if>
           </c:if>
 
 

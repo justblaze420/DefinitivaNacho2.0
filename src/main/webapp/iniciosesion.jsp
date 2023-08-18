@@ -7,6 +7,11 @@
 %>
 
 <%
+    Boolean canRegister = (Boolean) session.getAttribute("habilitarRegistros");
+    if (canRegister != null && canRegister) {
+        response.sendRedirect("404.jsp");
+        return;
+    }
     session.setAttribute("tipoSesion", null);
     session.invalidate();
 %>
