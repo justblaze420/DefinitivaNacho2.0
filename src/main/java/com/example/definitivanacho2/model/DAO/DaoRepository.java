@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface DaoRepository <T>{
     List <T> findAll(int id);
+    List <T> findAllofAll();
     T findOne(int id);
     boolean update (int id, Usuario prd);
     boolean delete (int id);

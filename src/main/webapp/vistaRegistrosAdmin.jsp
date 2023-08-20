@@ -78,6 +78,12 @@
         <div class="table-responsive">
             <input type="text" name="daterange"/>
             <input type="button" class="btn btn-outline-info" value="Limpiar Rango" onclick="location.reload();">
+            <button class="btn btn-outline-primary" onclick="printPage()">Imprimir Tabla</button>
+            <script>
+                function printPage() {
+                    window.print();
+                }
+            </script>
             <script>
                 $(function() {
                     var table = $('#example').DataTable();

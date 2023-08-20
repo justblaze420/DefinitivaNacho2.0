@@ -5,7 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registro de Usuarios</title>
+  <c:choose>
+    <c:when test="${sessionScope.update == 'update'}">
+      <title>Modificar Usuario</title>
+    </c:when>
+    <c:otherwise>
+      <title>Registro de Usuarios</title>
+    </c:otherwise>
+  </c:choose>
   <!-- Enlace a la hoja de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
@@ -128,6 +135,9 @@
         <label for="usuario">Usuario:</label>
         <input type="text" class="form-control" id="usuario" name="usuario" value="${usuario.usuario}" placeholder="Ingresa tu usuario" required>
       </div>
+      <c:if test="${not empty errorMessage}">
+        <div class="alert alert-danger">${errorMessage}</div>
+      </c:if>
       <c:choose>
         <c:when test="${sessionScope.update == 'update'}">
           <div class="form-group" id="newPasswordDiv" style="display:none;">

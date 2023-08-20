@@ -55,19 +55,40 @@ public class RegistroServlet extends HttpServlet {
         int idDepartamento = Integer.parseInt(req.getParameter("idDepartamento"));
         String usuario = req.getParameter("usuario");
         String contrasena = req.getParameter("contrasena");
+        String update = (String) req.getSession().getAttribute("update");
         String passwordChangeRequested = req.getParameter("passwordChangeRequested");
 
         DaoUsuario dao = new DaoUsuario();
         String idPersonalParam = req.getParameter("idPersonal");
 
+        if (update == null || !update.equals("update") || (update.equals("update") && !dao.isSameUsername(idPersonalParam, usuario))) {
+            if (dao.usernameExists(usuario)) {
+                req.getSession().removeAttribute("usuario");
+                req.setAttribute("errorMessage", "El usuario ya existe");
+                req.getRequestDispatcher("registroAdmin.jsp").forward(req, resp);
+                return;
+            }
+        }
+
         if ("true".equals(passwordChangeRequested)) {
             String newPassword = req.getParameter("newPassword");
             if(newPassword != null && !newPassword.isEmpty()) {
                 try (Connection con = new MysqlConnector().connect()) {
-                    PreparedStatement stmt = con.prepareStatement("UPDATE personal SET contrasena = sha2(?,224) WHERE idPersonal = ?");
-                    stmt.setString(1, newPassword);
-                    stmt.setInt(2, Integer.parseInt(idPersonalParam));
-                    stmt.executeUpdate();
+                    // Actualización de contraseña
+                    PreparedStatement stmtPassword = con.prepareStatement("UPDATE personal SET contrasena = sha2(?,224) WHERE idPersonal = ?");
+                    stmtPassword.setString(1, newPassword);
+                    stmtPassword.setInt(2, Integer.parseInt(idPersonalParam));
+                    stmtPassword.executeUpdate();
+
+                    // Actualización de otros datos
+                    PreparedStatement stmtData = con.prepareStatement("UPDATE personal SET nombre = ?, apellido = ?, rol = ?, idDepartamento = ?, usuario = ? WHERE idPersonal = ?");
+                    stmtData.setString(1, nombre);
+                    stmtData.setString(2, apellido);
+                    stmtData.setString(3, rol);
+                    stmtData.setInt(4, idDepartamento);
+                    stmtData.setString(5, usuario);
+                    stmtData.setInt(6, Integer.parseInt(idPersonalParam));
+                    stmtData.executeUpdate();
                 } catch(SQLException e) {
                     throw new RuntimeException(e);
                 }

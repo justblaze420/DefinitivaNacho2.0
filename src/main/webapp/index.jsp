@@ -184,7 +184,7 @@
             if (isButtonActive) {
                 $('#hidden-form').stop().slideToggle('fast');
             } else {
-                $('#message').text('El sistema está actualmente desactivado.');
+                $('#message').text('Esta funcion está actualmente desactivada.');
                 $('#hidden-form').stop().slideUp('fast');
             }
         });

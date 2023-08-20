@@ -9,22 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Pagina Modificar usuarios corregida y alerta de eliminar usuario funcional">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/ShutdownServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/img/power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/img/poweralert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/loginSistema.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4295d551-e478-4632-a3ae-e799a2f995b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4295d551-e478-4632-a3ae-e799a2f995b8.xml" afterDir="false" />
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroAdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroAdminServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/RegistrosSRP.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/RegistrosSRP.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/SRP.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/utils/MysqlConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/utils/MysqlConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/iniciosesion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultasAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +276,10 @@
       <workItem from="1692229940448" duration="3384000" />
       <workItem from="1692294440174" duration="3493000" />
       <workItem from="1692303271962" duration="1664000" />
-      <workItem from="1692313833568" duration="13721000" />
+      <workItem from="1692313833568" duration="14373000" />
+      <workItem from="1692382746164" duration="1114000" />
+      <workItem from="1692392538282" duration="1878000" />
+      <workItem from="1692487306493" duration="16556000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -470,11 +470,29 @@
       <option name="project" value="LOCAL" />
       <updated>1692075418578</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado">
+      <created>1692340899387</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1692340899387</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -523,7 +541,8 @@
     <MESSAGE value="Traduccion de la Date Range Picker y Columna Duracion ya lee mas de 24 horas funcional" />
     <MESSAGE value="Base de Datos Definitiva" />
     <MESSAGE value="Pagina Modificar usuarios corregida y alerta de eliminar usuario funcional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pagina Modificar usuarios corregida y alerta de eliminar usuario funcional" />
+    <MESSAGE value="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

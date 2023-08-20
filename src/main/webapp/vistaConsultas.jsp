@@ -120,9 +120,9 @@
       </thead>
       <tbody>
       <%
-        request.getSession().removeAttribute("Usuario");
+        Usuario usuario = (Usuario) session.getAttribute("usuarioActual");
         DaoUsuario daoUsr = new DaoUsuario();
-        request.getSession().setAttribute("Usuario", daoUsr.findAll());
+        request.getSession().setAttribute("Usuario", daoUsr.findAllofAll());
       %>
       <c:forEach items="${Usuario}" var="u">
         <tr>

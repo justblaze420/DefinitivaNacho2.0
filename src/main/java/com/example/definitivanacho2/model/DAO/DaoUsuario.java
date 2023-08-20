@@ -15,6 +15,35 @@ public class DaoUsuario implements DaoRepository{
         MysqlConnector connector = new MysqlConnector();
         return connector.connect();
     }
+    public boolean usernameExists(String username) {
+        boolean exists = false;
+        try (Connection con = new MysqlConnector().connect()) {
+            PreparedStatement stmt = con.prepareStatement("SELECT COUNT(*) FROM personal WHERE usuario = ?");
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                exists = rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return exists;
+    }
+    public boolean isSameUsername(String idPersonal, String newUsername) {
+        boolean sameUsername = false;
+        try (Connection con = new MysqlConnector().connect()) {
+            PreparedStatement stmt = con.prepareStatement("SELECT usuario FROM personal WHERE idPersonal = ?");
+            stmt.setInt(1, Integer.parseInt(idPersonal));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String currentUsername = rs.getString("usuario");
+                sameUsername = currentUsername.equals(newUsername);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return sameUsername;
+    }
     @Override
     public List<Usuario> findAll(int currentUserId) {
         List<Usuario> listaUsuarios = new ArrayList<>();
@@ -23,6 +52,32 @@ public class DaoUsuario implements DaoRepository{
         try {
             PreparedStatement stmt = conexion.prepareStatement("SELECT personal.*, departamento.nombre AS nombreDepartamento FROM personal JOIN departamento ON personal.idDepartamento = departamento.idDepartamento WHERE personal.idPersonal != ?");
             stmt.setInt(1, currentUserId);
+            ResultSet res = stmt.executeQuery();
+            while (res.next()) {
+                Usuario usr = new Usuario();
+                usr.setIdPersonal(res.getInt("idPersonal"));
+                usr.setNombre(res.getString("nombre"));
+                usr.setApellido(res.getString("apellido"));
+                usr.setRol(res.getString("rol"));
+                usr.setNombreDepartamento(res.getString("nombreDepartamento"));
+                usr.setUsuario(res.getString("usuario"));
+                usr.setContrasena(res.getString("contrasena"));
+                usr.setRegistro(res.getDate("registro"));
+                listaUsuarios.add(usr);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaUsuarios;
+    }
+    @Override
+    public List<Usuario> findAllofAll() {
+        List<Usuario> listaUsuarios = new ArrayList<>();
+        MysqlConnector con = new MysqlConnector();
+        Connection conexion = con.connect();
+        try {
+            PreparedStatement stmt = conexion.prepareStatement("SELECT personal.*, departamento.nombre AS nombreDepartamento FROM personal JOIN departamento ON personal.idDepartamento = departamento.idDepartamento\n");
             ResultSet res = stmt.executeQuery();
             while (res.next()) {
                 Usuario usr = new Usuario();
