@@ -23,7 +23,7 @@
 %>
 <div style="font-family: Arial">
   <div class="jumbotron mt-5" style="font-family: 'Arial'">
-    <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> ¡Bienvenido!</h1>
+    <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> ¡Bienvenido(a)! <%= usuario.getNombre() %>.</h1>
     <p class="lead">Tu registro ha sido completado exitosamente. <strong><%= usuario.getNombre() %></strong></p>
     <hr class="my-4">
     <table border="1" class="table table-striped table-bordered">

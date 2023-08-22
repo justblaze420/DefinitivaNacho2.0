@@ -22,7 +22,7 @@
 %>
 <div style="font-family: Arial">
   <div class="jumbotron mt-5">
-    <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> ¡Hasta Luego!</h1>
+    <h1 class="display-4"><img src="assets/img/DALL·E.png" width="100" height="100"> ¡Hasta Luego! <%= usuario.getNombre() %>.</h1>
     <p class="lead">Tu salida ha sido registrada al <%= registro.getHoraSalida() %> , <strong><%= usuario.getNombre() %></strong></p>
     <hr class="my-4">
     <table border="1" class="table table-striped table-bordered">

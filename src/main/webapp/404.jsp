@@ -18,7 +18,6 @@
         <p class="lead">Lo sentimos, la página que estás buscando no existe.</p>
         <hr class="my-4">
         <p>Puede que hayas introducido la dirección incorrectamente o que la página haya sido movida o eliminada.</p>
-        <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Regresar</a>
         <a class="btn btn-outline-primary" href="index.jsp" role="button">Ir al Inicio</a>
         <a class="btn btn-outline-success" href="iniciosesion.jsp" role="button">Iniciar Sesion</a>
     </div>

@@ -74,6 +74,7 @@
       document.getElementById('nombre').value = '';
       document.getElementById('apellido').value = '';
       document.getElementById('rol').selectedIndex = 0; // Para seleccionar el primer item en el dropdown
+      document.getElementById('idDepartamento').selectedIndex = 0;
       document.getElementById('usuario').value = '';
       document.getElementById('contrasena').value = '';
       document.getElementById('idPersonal').value = '';
@@ -115,16 +116,39 @@
       </div>
       <script>
         $(document).ready(function() {
+          function updateDepartamentoOptions(selectedRol) {
+            $('#idDepartamento option').each(function() {
+              const value = $(this).val();
+              if (selectedRol === 'Admin RH' || selectedRol === 'Admin') {
+                $(this).hide();
+              } else if (selectedRol === 'User' && (value === '4' || value === '5')) {
+                $(this).hide();
+              } else {
+                $(this).show();
+              }
+            });
+          }
+
           $('#rol').change(function() {
-            if ($(this).val() == 'Admin RH') {
+            const selectedRol = $(this).val();
+
+            if (selectedRol === 'Admin RH') {
               $('#idDepartamento').val('4');
-            }
-          });
-          $('#rol').change(function() {
-            if ($(this).val() == 'Admin') {
+              $('#idDepartamento').prop('disabled', true);
+              updateDepartamentoOptions(selectedRol);
+            } else if (selectedRol === 'Admin') {
               $('#idDepartamento').val('5');
+              $('#idDepartamento').prop('disabled', true);
+              updateDepartamentoOptions(selectedRol);
+            } else {  // asume que es 'User'
+              $('#idDepartamento').val('1');  // establecer "Profesores" como la opción por defecto
+              $('#idDepartamento').prop('disabled', false);
+              updateDepartamentoOptions(selectedRol);
             }
           });
+
+          // Inicialización, si es necesario
+          updateDepartamentoOptions($('#rol').val());
         });
       </script>
       <div class="form-group">
@@ -134,7 +158,7 @@
           <option value="2" ${usuario.idDepartamento == '2' ? 'selected' : ''}>Seguridad</option>
           <option value="3" ${usuario.idDepartamento == '3' ? 'selected' : ''}>Limpieza</option>
           <option value="4" ${usuario.idDepartamento == '4' ? 'selected' : ''}>Recursos Humanos</option>
-          <option value="5" ${usuario.idDepartamento == '5' ? 'selected' : ''}>Administrador</option>
+          <option value="5" ${usuario.idDepartamento == '5' ? 'selected' : ''}>Administración</option>
           <option value="6" ${usuario.idDepartamento == '6' ? 'selected' : ''}>Psiquiatría</option>
           <option value="7" ${usuario.idDepartamento == '7' ? 'selected' : ''}>Áreas Sociales</option>
         </select>
@@ -144,7 +168,7 @@
         <input type="text" class="form-control" id="usuario" name="usuario" value="${usuario.usuario}" placeholder="Ingresa tu usuario" required>
       </div>
       <c:if test="${not empty errorMessage}">
-        <div class="alert alert-danger">${errorMessage}</div>
+        <div class="text-danger">${errorMessage}</div>
       </c:if>
       <c:choose>
         <c:when test="${sessionScope.update == 'update'}">
@@ -152,6 +176,9 @@
             <label for="newPassword">Nueva Contraseña:</label>
             <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Nueva contraseña">
           </div>
+          <c:if test="${not empty errorMessage3}">
+            <div class="text-danger">${errorMessage3}</div>
+          </c:if>
           <button id="changePasswordBtn" class="btn btn-outline-info">Cambiar contraseña</button>
           <input type="hidden" id="passwordChangeRequested" name="passwordChangeRequested" value="false">
 
@@ -161,7 +188,9 @@
               event.preventDefault();
 
               const newPasswordDiv = document.getElementById("newPasswordDiv");
+              const newPasswordInput = document.getElementById("newPassword");
               newPasswordDiv.style.display = "block";
+              newPasswordInput.required = true;
               document.getElementById("passwordChangeRequested").value = "true";
             });
           </script>
@@ -169,7 +198,10 @@
         <c:otherwise>
           <div class="form-group">
             <label for="contrasena">Contraseña:</label>
-            <input type="password" class="form-control" id="contrasena" name="contrasena" value="${usuario.contrasena}" placeholder="Ingresa tu contraseña" required>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" value="${usuario.contrasena}" placeholder="Ingresa tu contraseña">
+            <c:if test="${not empty errorMessage2}">
+              <div class="text-danger">${errorMessage2}</div>
+            </c:if>
           </div>
         </c:otherwise>
       </c:choose>

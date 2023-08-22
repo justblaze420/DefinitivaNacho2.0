@@ -125,7 +125,7 @@
     }
 
     .slide-in {
-        animation: 0.5s ease-out 0s 1 slideInFromRight;
+        animation: 0.1s ease-out 0s 1 slideInFromRight;
     }
 
     .container {
@@ -133,7 +133,17 @@
     }
 
     #show-form {
-        opacity: <% if(canRegister) { %>1<% } else { %>0.5<% } %>;
+        opacity: <% if(canRegister) { %>1<% } else { %>0.25<% } %>;
+        transition: transform 0.1s ease;
+    }
+
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .moved {
+        transform: translateX(<% if(canRegister) { %>-30px<% } else { %>-10px<% } %>);
     }
 
 </style>
@@ -153,9 +163,24 @@
         <% } %>
         <hr class="my-4">
 
-        <div id="form-container" style="display: flex; text-align: center">
-            <a href="#"><img src="assets/img/fingerprint.png" id="show-form" style="height:100px; width:100px; position: relative; left: 400%;"></a>
-            <div class="form-group" id="hidden-form" style="display: none; position: relative; left: 40%;" >
+        <div class="center-container" id="form-container" style="display: flex;">
+            <a href="javascript:void(0);" onclick="moveImage()"><img src="assets/img/fingerprint.png" id="show-form" style="height:100px; width:100px;"></a>
+            <script>
+                let imageMoved = false;
+
+                function moveImage() {
+                    const image = document.getElementById('show-form');
+
+                    if (imageMoved) {
+                        image.classList.remove('moved');
+                    } else {
+                        image.classList.add('moved');
+                    }
+
+                    imageMoved = !imageMoved;
+                }
+            </script>
+            <div class="form-group" id="hidden-form" style="display: none; position: relative;" >
 
                 <form action="entrada-servlet" method="post" style="font-family: Arial">
                     <label for="idPersonal">ID:</label>

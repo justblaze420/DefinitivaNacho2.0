@@ -9,19 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado">
+    <list default="true" id="fe662efe-28c2-4420-9c76-6cb9febdebf9" name="Changes" comment="Boton cambiar contrasena corregido, advertencia usuario ya existe funcional y boton imprimir tabla funcional">
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroAdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroAdminServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/controller/RegistroServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/model/DAO/DaoUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/utils/MysqlConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/definitivanacho2/utils/MysqlConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/404.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/404.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/RegistrosSRP.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/RegistrosSRP.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/confirmarSalida.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/confirmarSalida.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/entrada.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/entrada.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registro.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registroAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaConsultas.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistros.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/vistaRegistrosAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/salida.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/salida.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +279,9 @@
       <workItem from="1692313833568" duration="14373000" />
       <workItem from="1692382746164" duration="1114000" />
       <workItem from="1692392538282" duration="1878000" />
-      <workItem from="1692487306493" duration="16556000" />
+      <workItem from="1692487306493" duration="17172000" />
+      <workItem from="1692636967909" duration="3978000" />
+      <workItem from="1692649680885" duration="20181000" />
     </task>
     <task id="LOCAL-00001" summary="Integradora Parte 1">
       <created>1690224834223</created>
@@ -477,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692340899387</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Boton cambiar contrasena corregido, advertencia usuario ya existe funcional y boton imprimir tabla funcional">
+      <created>1692509131701</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1692509131701</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +551,8 @@
     <MESSAGE value="Base de Datos Definitiva" />
     <MESSAGE value="Pagina Modificar usuarios corregida y alerta de eliminar usuario funcional" />
     <MESSAGE value="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Habilitar y apagado del sistema funcional y lista de usuarios corregida, proyecto 100% terminado" />
+    <MESSAGE value="Boton cambiar contrasena corregido, advertencia usuario ya existe funcional y boton imprimir tabla funcional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Boton cambiar contrasena corregido, advertencia usuario ya existe funcional y boton imprimir tabla funcional" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

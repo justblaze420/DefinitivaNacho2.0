@@ -18,11 +18,13 @@
         <img src="assets/img/DALL·E.png" width="100" height="100">
         <h1 class="display-4"><img src="assets/img/danger.png" width="125" height="100">Confirmar Salida</h1>
         <p>Ya registraste tu entrada. ¿Deseas registrar tu salida <strong><%= usuario.getNombre() %></strong> ?</p>
+        <div>
         <form action="entrada-servlet" method="post">
             <input type="hidden" id="confirmarSalida" name="confirmarSalida" value="true">
-            <button type="submit" class="btn btn-outline-warning">Confirmar Salida</button>
+            <button type="submit" class="btn btn-warning">Confirmar Salida</button>
         </form>
-        <button onclick="cancelar()" class="btn btn-outline-danger">Cancelar</button>
+        <button onclick="cancelar()" class="btn btn-danger">Cancelar</button>
+        </div>
         <script>
             function cancelar() {
                 window.location.href = "index.jsp"; // Redirige a donde quieras si se cancela

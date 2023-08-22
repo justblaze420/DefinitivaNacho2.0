@@ -65,6 +65,14 @@ public class RegistroServlet extends HttpServlet {
             if (dao.usernameExists(usuario)) {
                 req.getSession().removeAttribute("usuario");
                 req.setAttribute("errorMessage", "El usuario ya existe");
+                req.getRequestDispatcher("registro.jsp").forward(req, resp);
+                return;
+            }
+        }
+        if (update == null || !update.equals("update")) {
+            if (contrasena == null || contrasena.length() < 5 || contrasena.length() > 12) {
+                req.getSession().removeAttribute("usuario");
+                req.setAttribute("errorMessage2", "La contraseña debe tener entre 5 y 12 caracteres");
                 req.getRequestDispatcher("registroAdmin.jsp").forward(req, resp);
                 return;
             }
@@ -72,7 +80,12 @@ public class RegistroServlet extends HttpServlet {
 
         if ("true".equals(passwordChangeRequested)) {
             String newPassword = req.getParameter("newPassword");
-            if(newPassword != null && !newPassword.isEmpty()) {
+            if (newPassword.length() < 5 || newPassword.length() > 12) {
+                req.getSession().removeAttribute("usuario");
+                req.setAttribute("errorMessage3", "La nueva contraseña debe tener entre 5 y 12 caracteres");
+                req.getRequestDispatcher("registro.jsp").forward(req, resp);
+                return;
+            } else if(newPassword != null && !newPassword.isEmpty()) {
                 try (Connection con = new MysqlConnector().connect()) {
                     // Actualización de contraseña
                     PreparedStatement stmtPassword = con.prepareStatement("UPDATE personal SET contrasena = sha2(?,224) WHERE idPersonal = ?");
